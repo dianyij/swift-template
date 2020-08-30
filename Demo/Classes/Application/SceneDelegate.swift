@@ -1,13 +1,14 @@
 //
 //  SceneDelegate.swift
-//  swift-template
+//  Demo
 //
-//  Created by dianyi jiang on 21/08/20.
-//  Copyright © 2020 ORGNAME. All rights reserved.
+//  Created by dianyi jiang on 27/08/20.
+//  Copyright © 2020 ORG. All rights reserved.
 //
 
 import UIKit
 
+@available(iOS 13.0, *)
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
@@ -17,7 +18,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard (scene as? UIWindowScene) != nil else { return }
+
+        if let window = window {
+            window.backgroundColor = .white
+            Application.shared.presentInitialScreen(in: window)
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -50,4 +56,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
 }
-

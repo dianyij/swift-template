@@ -1,14 +1,14 @@
 //
-//  swift_templateUITests.swift
-//  swift-templateUITests
+//  DemoUITests.swift
+//  DemoUITests
 //
-//  Created by dianyi jiang on 21/08/20.
-//  Copyright © 2020 ORGNAME. All rights reserved.
+//  Created by dianyi jiang on 27/08/20.
+//  Copyright © 2020 ORG. All rights reserved.
 //
 
 import XCTest
 
-class swift_templateUITests: XCTestCase {
+class DemoUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

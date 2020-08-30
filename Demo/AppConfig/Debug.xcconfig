@@ -1,0 +1,13 @@
+//
+//  Debug.xcconfig
+//  Demo
+//
+//  Created by dianyi jiang on 2020-08-27.
+//  Copyright © 2020 ORG. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+BASE_URL = https:/$()/api.sandbox.com/v1/
+ENABLE_NETWORK_LOGGING = YES
