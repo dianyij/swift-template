@@ -28,6 +28,13 @@
 		1565748D24F74D7900D10FD3 /* AppDelegate+Push.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1565748C24F74D7900D10FD3 /* AppDelegate+Push.swift */; };
 		1565749124F7599600D10FD3 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1565749024F7599600D10FD3 /* Localization.strings */; };
 		15E95C3124FB4E6E00F6576B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E95C3024FB4E6E00F6576B /* HomeViewController.swift */; };
+		15EDE7B9250A235D0065ED37 /* UIView+Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EDE7B1250A23230065ED37 /* UIView+Exts.swift */; };
+		15EDE7BA250A235D0065ED37 /* UIView+Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EDE7B2250A23230065ED37 /* UIView+Gesture.swift */; };
+		15EDE7BB250A235D0065ED37 /* BlockPan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EDE7B4250A23230065ED37 /* BlockPan.swift */; };
+		15EDE7BC250A235D0065ED37 /* BlockPinch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EDE7B5250A23230065ED37 /* BlockPinch.swift */; };
+		15EDE7BD250A235D0065ED37 /* BlockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EDE7B6250A23230065ED37 /* BlockButton.swift */; };
+		15EDE7BE250A235D0065ED37 /* BlockTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EDE7B7250A23230065ED37 /* BlockTap.swift */; };
+		15EDE7BF250A235D0065ED37 /* BlockLongPress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EDE7B8250A23230065ED37 /* BlockLongPress.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +84,13 @@
 		1565748C24F74D7900D10FD3 /* AppDelegate+Push.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Push.swift"; sourceTree = "<group>"; };
 		1565749024F7599600D10FD3 /* Localization.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localization.strings; sourceTree = "<group>"; };
 		15E95C3024FB4E6E00F6576B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		15EDE7B1250A23230065ED37 /* UIView+Exts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Exts.swift"; sourceTree = "<group>"; };
+		15EDE7B2250A23230065ED37 /* UIView+Gesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gesture.swift"; sourceTree = "<group>"; };
+		15EDE7B4250A23230065ED37 /* BlockPan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockPan.swift; sourceTree = "<group>"; };
+		15EDE7B5250A23230065ED37 /* BlockPinch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockPinch.swift; sourceTree = "<group>"; };
+		15EDE7B6250A23230065ED37 /* BlockButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockButton.swift; sourceTree = "<group>"; };
+		15EDE7B7250A23230065ED37 /* BlockTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockTap.swift; sourceTree = "<group>"; };
+		15EDE7B8250A23230065ED37 /* BlockLongPress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockLongPress.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +252,7 @@
 		1565748E24F755FC00D10FD3 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				15EDE7AF250A23230065ED37 /* Extension */,
 				1565745424F7162F00D10FD3 /* ViewController.swift */,
 				151CD3EC24F76E67006F3D9C /* PlainTableView.swift */,
 			);
@@ -259,6 +274,36 @@
 				15E95C3024FB4E6E00F6576B /* HomeViewController.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		15EDE7AF250A23230065ED37 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				15EDE7B0250A23230065ED37 /* UIkit */,
+				15EDE7B3250A23230065ED37 /* Block */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		15EDE7B0250A23230065ED37 /* UIkit */ = {
+			isa = PBXGroup;
+			children = (
+				15EDE7B1250A23230065ED37 /* UIView+Exts.swift */,
+				15EDE7B2250A23230065ED37 /* UIView+Gesture.swift */,
+			);
+			path = UIkit;
+			sourceTree = "<group>";
+		};
+		15EDE7B3250A23230065ED37 /* Block */ = {
+			isa = PBXGroup;
+			children = (
+				15EDE7B4250A23230065ED37 /* BlockPan.swift */,
+				15EDE7B5250A23230065ED37 /* BlockPinch.swift */,
+				15EDE7B6250A23230065ED37 /* BlockButton.swift */,
+				15EDE7B7250A23230065ED37 /* BlockTap.swift */,
+				15EDE7B8250A23230065ED37 /* BlockLongPress.swift */,
+			);
+			path = Block;
 			sourceTree = "<group>";
 		};
 		2E6532B4E74104FA63DACBFA /* Pods */ = {
@@ -443,6 +488,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15EDE7B9250A235D0065ED37 /* UIView+Exts.swift in Sources */,
+				15EDE7BA250A235D0065ED37 /* UIView+Gesture.swift in Sources */,
+				15EDE7BB250A235D0065ED37 /* BlockPan.swift in Sources */,
+				15EDE7BC250A235D0065ED37 /* BlockPinch.swift in Sources */,
+				15EDE7BD250A235D0065ED37 /* BlockButton.swift in Sources */,
+				15EDE7BE250A235D0065ED37 /* BlockTap.swift in Sources */,
+				15EDE7BF250A235D0065ED37 /* BlockLongPress.swift in Sources */,
 				151CD38B24F7640B006F3D9C /* AppConfig.swift in Sources */,
 				151CD3ED24F76E67006F3D9C /* PlainTableView.swift in Sources */,
 				151CD40824F8AF7B006F3D9C /* NetworkConfig.swift in Sources */,
