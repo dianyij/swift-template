@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwifterSwift
 
 final class Application {
     static let shared = Application()

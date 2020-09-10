@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     }
 
     let isLoading = false
-    var emptyDataSetTitle = R.string.localization.commonNoContent().localized()
+    var emptyDataSetTitle = R.string.localization.commonNoContent()
     var emptyDataSetImage = R.image.empty_content()
     var emptyDataSetImageTintColor: UIColor = .white
 

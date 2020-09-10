@@ -25,7 +25,6 @@ target 'Demo' do
   pod 'IQKeyboardManagerSwift'
   pod 'SnapKit'
   pod 'Device'
-  pod 'SwifterSwift'
   pod 'R.swift'
   pod 'SwiftLint'
 
