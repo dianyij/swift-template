@@ -1,4 +1,4 @@
-platform :ios, '11.0'
+platform :ios, '12.0'
 
 target 'Demo' do
   use_frameworks!
@@ -48,7 +48,7 @@ post_install do |installer|
   # Set Deployment Target iOS Version
   installer.pods_project.targets.each do |target|
     target.build_configurations.each do |config|
-        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '11.0'
-      end
+      config.build_settings.delete 'IPHONEOS_DEPLOYMENT_TARGET'
     end
+  end
 end
