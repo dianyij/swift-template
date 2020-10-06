@@ -62,5 +62,19 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>NSCameraUsageDescription</key>
+    <string>${PRODUCT_NAME} Camera Usage</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>${PRODUCT_NAME} Location Usage</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>${PRODUCT_NAME} Location Usage</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>${PRODUCT_NAME} Location Usage</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>${PRODUCT_NAME} Microphone Usage</string>
+    <key>NSPhotoLibraryAddUsageDescription</key>
+    <string>${PRODUCT_NAME} library Usage</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>${PRODUCT_NAME} PhotoLibrary Usage</string>
 </dict>
 </plist>
