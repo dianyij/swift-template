@@ -1,5 +1,5 @@
 //
-//  Logmanager.swift
+//  LogManager.swift
 //  Demo
 //
 //  Created by dianyi jiang on 27/08/20.

@@ -10,7 +10,7 @@
 		151CD38B24F7640B006F3D9C /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151CD38A24F7625D006F3D9C /* AppConfig.swift */; };
 		151CD3ED24F76E67006F3D9C /* PlainTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151CD3EC24F76E67006F3D9C /* PlainTableView.swift */; };
 		151CD3F224F7A8B1006F3D9C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151CD3F124F7A8B1006F3D9C /* User.swift */; };
-		151CD3F424F7AC46006F3D9C /* Logmanager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151CD3F324F7AC46006F3D9C /* Logmanager.swift */; };
+		151CD3F424F7AC46006F3D9C /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151CD3F324F7AC46006F3D9C /* LogManager.swift */; };
 		151CD3F624F7ACA6006F3D9C /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151CD3F524F7ACA6006F3D9C /* AuthManager.swift */; };
 		151CD40824F8AF7B006F3D9C /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151CD40724F8AF7B006F3D9C /* NetworkConfig.swift */; };
 		151CD40A24F8AFA4006F3D9C /* AccountApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151CD40924F8AFA4006F3D9C /* AccountApi.swift */; };
@@ -35,6 +35,15 @@
 		15EDE7BD250A235D0065ED37 /* BlockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EDE7B6250A23230065ED37 /* BlockButton.swift */; };
 		15EDE7BE250A235D0065ED37 /* BlockTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EDE7B7250A23230065ED37 /* BlockTap.swift */; };
 		15EDE7BF250A235D0065ED37 /* BlockLongPress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EDE7B8250A23230065ED37 /* BlockLongPress.swift */; };
+		57038A6D252D4DB300B54DA9 /* String+Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57038A6C252D4DB300B54DA9 /* String+Exts.swift */; };
+		57038A77252D4DD700B54DA9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57038A76252D4DD700B54DA9 /* LocationManager.swift */; };
+		57038A7C252D4DE400B54DA9 /* CameraManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57038A7B252D4DE400B54DA9 /* CameraManager.swift */; };
+		57038A84252D505000B54DA9 /* UIApplication+Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57038A83252D505000B54DA9 /* UIApplication+Exts.swift */; };
+		57038A8C252D50E600B54DA9 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57038A8B252D50E600B54DA9 /* Timer.swift */; };
+		57038AB0252D6BA900B54DA9 /* UIImage+Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57038AAF252D6BA900B54DA9 /* UIImage+Exts.swift */; };
+		57038AE0252E4BC100B54DA9 /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57038ADF252E4BC100B54DA9 /* UIView+Animation.swift */; };
+		57038AEB252E548E00B54DA9 /* UIImage+Bitmap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57038AEA252E548E00B54DA9 /* UIImage+Bitmap.swift */; };
+		57038B1C252E742F00B54DA9 /* MemoryLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57038B1B252E742F00B54DA9 /* MemoryLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +69,7 @@
 		151CD38A24F7625D006F3D9C /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		151CD3EC24F76E67006F3D9C /* PlainTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainTableView.swift; sourceTree = "<group>"; };
 		151CD3F124F7A8B1006F3D9C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		151CD3F324F7AC46006F3D9C /* Logmanager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logmanager.swift; sourceTree = "<group>"; };
+		151CD3F324F7AC46006F3D9C /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
 		151CD3F524F7ACA6006F3D9C /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		151CD40724F8AF7B006F3D9C /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
 		151CD40924F8AFA4006F3D9C /* AccountApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountApi.swift; sourceTree = "<group>"; };
@@ -91,6 +100,15 @@
 		15EDE7B6250A23230065ED37 /* BlockButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockButton.swift; sourceTree = "<group>"; };
 		15EDE7B7250A23230065ED37 /* BlockTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockTap.swift; sourceTree = "<group>"; };
 		15EDE7B8250A23230065ED37 /* BlockLongPress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockLongPress.swift; sourceTree = "<group>"; };
+		57038A6C252D4DB300B54DA9 /* String+Exts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Exts.swift"; sourceTree = "<group>"; };
+		57038A76252D4DD700B54DA9 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		57038A7B252D4DE400B54DA9 /* CameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraManager.swift; sourceTree = "<group>"; };
+		57038A83252D505000B54DA9 /* UIApplication+Exts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Exts.swift"; sourceTree = "<group>"; };
+		57038A8B252D50E600B54DA9 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		57038AAF252D6BA900B54DA9 /* UIImage+Exts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Exts.swift"; sourceTree = "<group>"; };
+		57038ADF252E4BC100B54DA9 /* UIView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
+		57038AEA252E548E00B54DA9 /* UIImage+Bitmap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Bitmap.swift"; sourceTree = "<group>"; };
+		57038B1B252E742F00B54DA9 /* MemoryLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				1565748024F7230D00D10FD3 /* Application */,
+				57038A4C252D4CE100B54DA9 /* BaseClass */,
 				1565748E24F755FC00D10FD3 /* Common */,
 				1565748524F725C500D10FD3 /* Manager */,
 				151CD3EE24F77929006F3D9C /* Networking */,
@@ -243,8 +262,10 @@
 			isa = PBXGroup;
 			children = (
 				1565748624F725F000D10FD3 /* LibManager.swift */,
-				151CD3F324F7AC46006F3D9C /* Logmanager.swift */,
+				151CD3F324F7AC46006F3D9C /* LogManager.swift */,
 				151CD3F524F7ACA6006F3D9C /* AuthManager.swift */,
+				57038A76252D4DD700B54DA9 /* LocationManager.swift */,
+				57038A7B252D4DE400B54DA9 /* CameraManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -253,8 +274,6 @@
 			isa = PBXGroup;
 			children = (
 				15EDE7AF250A23230065ED37 /* Extension */,
-				1565745424F7162F00D10FD3 /* ViewController.swift */,
-				151CD3EC24F76E67006F3D9C /* PlainTableView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -279,8 +298,9 @@
 		15EDE7AF250A23230065ED37 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				15EDE7B0250A23230065ED37 /* UIkit */,
 				15EDE7B3250A23230065ED37 /* Block */,
+				57038A6B252D4D9600B54DA9 /* Foundation */,
+				15EDE7B0250A23230065ED37 /* UIkit */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -288,8 +308,12 @@
 		15EDE7B0250A23230065ED37 /* UIkit */ = {
 			isa = PBXGroup;
 			children = (
+				57038A83252D505000B54DA9 /* UIApplication+Exts.swift */,
 				15EDE7B1250A23230065ED37 /* UIView+Exts.swift */,
+				57038ADF252E4BC100B54DA9 /* UIView+Animation.swift */,
 				15EDE7B2250A23230065ED37 /* UIView+Gesture.swift */,
+				57038AAF252D6BA900B54DA9 /* UIImage+Exts.swift */,
+				57038AEA252E548E00B54DA9 /* UIImage+Bitmap.swift */,
 			);
 			path = UIkit;
 			sourceTree = "<group>";
@@ -311,6 +335,25 @@
 			children = (
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		57038A4C252D4CE100B54DA9 /* BaseClass */ = {
+			isa = PBXGroup;
+			children = (
+				1565745424F7162F00D10FD3 /* ViewController.swift */,
+				151CD3EC24F76E67006F3D9C /* PlainTableView.swift */,
+			);
+			path = BaseClass;
+			sourceTree = "<group>";
+		};
+		57038A6B252D4D9600B54DA9 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				57038A8B252D50E600B54DA9 /* Timer.swift */,
+				57038B1B252E742F00B54DA9 /* MemoryLayout.swift */,
+				57038A6C252D4DB300B54DA9 /* String+Exts.swift */,
+			);
+			path = Foundation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -490,6 +533,9 @@
 			files = (
 				15EDE7B9250A235D0065ED37 /* UIView+Exts.swift in Sources */,
 				15EDE7BA250A235D0065ED37 /* UIView+Gesture.swift in Sources */,
+				57038A77252D4DD700B54DA9 /* LocationManager.swift in Sources */,
+				57038A84252D505000B54DA9 /* UIApplication+Exts.swift in Sources */,
+				57038A6D252D4DB300B54DA9 /* String+Exts.swift in Sources */,
 				15EDE7BB250A235D0065ED37 /* BlockPan.swift in Sources */,
 				15EDE7BC250A235D0065ED37 /* BlockPinch.swift in Sources */,
 				15EDE7BD250A235D0065ED37 /* BlockButton.swift in Sources */,
@@ -499,13 +545,19 @@
 				151CD3ED24F76E67006F3D9C /* PlainTableView.swift in Sources */,
 				151CD40824F8AF7B006F3D9C /* NetworkConfig.swift in Sources */,
 				1565748324F7238300D10FD3 /* Application.swift in Sources */,
+				57038B1C252E742F00B54DA9 /* MemoryLayout.swift in Sources */,
+				57038A7C252D4DE400B54DA9 /* CameraManager.swift in Sources */,
 				151CD3F624F7ACA6006F3D9C /* AuthManager.swift in Sources */,
+				57038AE0252E4BC100B54DA9 /* UIView+Animation.swift in Sources */,
 				15E95C3124FB4E6E00F6576B /* HomeViewController.swift in Sources */,
+				57038AB0252D6BA900B54DA9 /* UIImage+Exts.swift in Sources */,
 				151CD40A24F8AFA4006F3D9C /* AccountApi.swift in Sources */,
+				57038AEB252E548E00B54DA9 /* UIImage+Bitmap.swift in Sources */,
 				1565745524F7162F00D10FD3 /* ViewController.swift in Sources */,
-				151CD3F424F7AC46006F3D9C /* Logmanager.swift in Sources */,
+				151CD3F424F7AC46006F3D9C /* LogManager.swift in Sources */,
 				1565745124F7162F00D10FD3 /* AppDelegate.swift in Sources */,
 				1565748724F725F000D10FD3 /* LibManager.swift in Sources */,
+				57038A8C252D50E600B54DA9 /* Timer.swift in Sources */,
 				1565745324F7162F00D10FD3 /* SceneDelegate.swift in Sources */,
 				1565748D24F74D7900D10FD3 /* AppDelegate+Push.swift in Sources */,
 				1565748A24F72E4A00D10FD3 /* R.generated.swift in Sources */,

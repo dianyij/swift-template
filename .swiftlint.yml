@@ -5,9 +5,11 @@ disabled_rules:
   - identifier_name
   - large_tuple
   - function_body_length
+  - function_parameter_count
+  - unused_closure_parameter
+
 
 opt_in_rules:
-  - empty_count
   - array_init
   - attributes
   - closure_end_indentation
