@@ -4,9 +4,21 @@ target 'Demo' do
   use_frameworks!
   inhibit_all_warnings!
 
+  #ReactiveX
+  pod 'RxCocoa'
+  pod 'RxSwift'
+  pod 'RxViewController'
+  pod 'RxDataSources'
+  pod 'RxSwiftExt'
+  pod 'NSObject+Rx'
+
   # Networking
-  pod 'Moya'
+  pod 'Alamofire'
+  pod 'Moya/RxSwift'
+  pod 'ReachabilitySwift'
   pod 'SDWebImage'
+  
+  # JSON
   pod 'KakaJSON'
 
   # Storage

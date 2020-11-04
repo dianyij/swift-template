@@ -4,19 +4,45 @@ PODS:
   - CocoaLumberjack/Swift (3.7.0):
     - CocoaLumberjack/Core
   - Device (3.2.1)
+  - Differentiator (4.0.1)
   - DZNEmptyDataSet (1.8.1)
   - IQKeyboardManagerSwift (6.5.6)
   - KakaJSON (1.1.2)
   - KeychainAccess (4.2.1)
   - MBProgressHUD (1.2.0)
   - MJRefresh (3.5.0)
-  - Moya (14.0.0):
-    - Moya/Core (= 14.0.0)
   - Moya/Core (14.0.0):
     - Alamofire (~> 5.0)
+  - Moya/RxSwift (14.0.0):
+    - Moya/Core
+    - RxSwift (~> 5.0)
+  - "NSObject+Rx (5.1.0)":
+    - RxSwift (~> 5.1)
   - R.swift (5.2.2):
     - R.swift.Library (~> 5.2.0)
   - R.swift.Library (5.2.0)
+  - ReachabilitySwift (5.0.0)
+  - RxCocoa (5.1.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxDataSources (4.0.1):
+    - Differentiator (~> 4.0)
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
+  - RxRelay (5.1.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.1.1)
+  - RxSwiftExt (5.2.0):
+    - RxSwiftExt/Core (= 5.2.0)
+    - RxSwiftExt/RxCocoa (= 5.2.0)
+  - RxSwiftExt/Core (5.2.0):
+    - RxSwift (~> 5.0)
+  - RxSwiftExt/RxCocoa (5.2.0):
+    - RxCocoa (~> 5.0)
+    - RxSwiftExt/Core
+  - RxViewController (1.0.0):
+    - RxCocoa (~> 5.0)
+    - RxSwift (~> 5.0)
   - SDWebImage (5.9.4):
     - SDWebImage/Core (= 5.9.4)
   - SDWebImage/Core (5.9.4)
@@ -25,6 +51,7 @@ PODS:
   - "UITextView+Placeholder (1.4.0)"
 
 DEPENDENCIES:
+  - Alamofire
   - CocoaLumberjack/Swift
   - Device
   - DZNEmptyDataSet
@@ -33,8 +60,15 @@ DEPENDENCIES:
   - KeychainAccess
   - MBProgressHUD
   - MJRefresh
-  - Moya
+  - Moya/RxSwift
+  - "NSObject+Rx"
   - R.swift
+  - ReachabilitySwift
+  - RxCocoa
+  - RxDataSources
+  - RxSwift
+  - RxSwiftExt
+  - RxViewController
   - SDWebImage
   - SnapKit
   - SwiftLint
@@ -45,6 +79,7 @@ SPEC REPOS:
     - Alamofire
     - CocoaLumberjack
     - Device
+    - Differentiator
     - DZNEmptyDataSet
     - IQKeyboardManagerSwift
     - KakaJSON
@@ -52,8 +87,16 @@ SPEC REPOS:
     - MBProgressHUD
     - MJRefresh
     - Moya
+    - "NSObject+Rx"
     - R.swift
     - R.swift.Library
+    - ReachabilitySwift
+    - RxCocoa
+    - RxDataSources
+    - RxRelay
+    - RxSwift
+    - RxSwiftExt
+    - RxViewController
     - SDWebImage
     - SnapKit
     - SwiftLint
@@ -63,6 +106,7 @@ SPEC CHECKSUMS:
   Alamofire: 2c792affbdc2f18016e08fdbcacd60aebe1ba593
   CocoaLumberjack: e8955b9d337ac307103b0a34fd141c32f27e53c5
   Device: 0738862dd8a30856b4bd9e21cb9b728873d21392
+  Differentiator: 886080237d9f87f322641dedbc5be257061b0602
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   KakaJSON: cc5ff50a8c1cfbb09413db8496cb709a209e6137
@@ -70,13 +114,21 @@ SPEC CHECKSUMS:
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
+  "NSObject+Rx": fa6bbcc1ab1faa06b01466bc09b1e0692bbc5946
   R.swift: 7c52cdc57a66840ffe6cbd8a823d732059d42a32
   R.swift.Library: 5ba4f1631300caf9a4d890186930da85d540769d
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
+  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
+  RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
+  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
+  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
+  RxSwiftExt: 4ca80336f43c28f11a2825cdd2fc61dd6c044697
+  RxViewController: 7330a46e5c31cd680db169da4c9fc8676e975a81
   SDWebImage: b69257f4ab14e9b6a2ef53e910fdf914d8f757c1
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftLint: dfd554ff0dff17288ee574814ccdd5cea85d76f7
   "UITextView+Placeholder": d7b0c400921f66523f3a85d74f774512e14f6502
 
-PODFILE CHECKSUM: 2d29cd59b47d618c484e83f7dc85fe615679832d
+PODFILE CHECKSUM: dfca28a860a95f396491cdbfdda4f31fb9d91667
 
 COCOAPODS: 1.10.0
