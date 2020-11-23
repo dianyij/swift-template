@@ -14,9 +14,17 @@ final class Application {
     var window: UIWindow!
 
     let authManager: AuthManager
+    let dataRepository: DataRepository
 
     init() {
         self.authManager = AuthManager.shared
+        self.dataRepository = DataRepository.shared
+        
+        _ = authManager.tokenChanged.subscribe(onNext: { [weak self] (token) in
+            if let window = self?.window, token == nil || token?.isValid == true {
+                self?.presentInitialScreen(in: window)
+            }
+        })
     }
 
     func presentInitialScreen(in window: UIWindow) {
@@ -28,10 +36,13 @@ final class Application {
         let loggedIn = authManager.hasToken
 
         var vc: UIViewController
+        
         if loggedIn {
-            vc = HomeViewController()
+            let viewModel = HomeViewModel(dataRepository: dataRepository)
+            vc = HomeViewController(viewModel: viewModel)
         } else {
-            vc = HomeViewController()
+            let viewModel = LoginViewModel(dataRepository: dataRepository)
+            vc = LoginViewController(viewModel: viewModel)
         }
 
         UIView.transition(with: window, duration: 0.5, options: .transitionFlipFromLeft, animations: {

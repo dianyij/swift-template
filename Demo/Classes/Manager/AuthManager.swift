@@ -8,6 +8,7 @@
 
 import Foundation
 import KeychainAccess
+import RxSwift
 
 struct Token: Codable {
     var basicToken: String?
@@ -24,6 +25,7 @@ class AuthManager {
 
     fileprivate let tokenKey = "TokenKey"
     fileprivate let keychain = Keychain()
+    let tokenChanged = PublishSubject<Token?>()
 
     var token: Token? {
         get {
@@ -37,8 +39,7 @@ class AuthManager {
             } else {
                 try? keychain.remove(tokenKey)
             }
-
-            // TODO: token has been changed
+            tokenChanged.onNext(newValue)
         }
     }
 
