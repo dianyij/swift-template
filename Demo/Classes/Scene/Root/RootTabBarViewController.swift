@@ -11,21 +11,37 @@ import RxViewController
 
 class RootTabBarViewController: UITabBarController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    var viewModel: RootTabBarViewModel
+    
+    init(viewModel: RootTabBarViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
-    */
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        setupUI()
+        bindViewModel()
+    }
+    
+    func setupUI() {
+        view.backgroundColor = .white
+    }
+
+    func bindViewModel() {
+        let input = RootTabBarViewModel.Input(viewDidAppear: rx.viewDidAppear.mapTo(()))
+        let out = viewModel.transform(input: input)
+        out.tabBarItems.drive(onNext: { [weak self] (items) in
+            guard let self = self else { return }
+            let controllers = items.map {
+                $0.viewController(for: self.viewModel.viewModel(for: $0))
+            }
+            self.setViewControllers(controllers, animated: false)
+        }).disposed(by: rx.disposeBag)
+    }
 }

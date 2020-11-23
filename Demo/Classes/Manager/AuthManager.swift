@@ -10,6 +10,11 @@ import Foundation
 import KeychainAccess
 import RxSwift
 
+struct LoginResponse: Codable {
+    let token: String
+    let user: User
+}
+
 struct Token: Codable {
     var basicToken: String?
     var isValid = false

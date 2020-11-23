@@ -8,6 +8,7 @@
 
 import Foundation
 import Moya
+import RxSwift
 
 struct NetworkingConstant {
     static let baseURL: URL = URL(string: AppConfig.baseURL)!
@@ -55,5 +56,17 @@ public class NetworkConfig {
 
     static func stubbingProvider() -> MoyaProvider<MultiTarget> {
         return MoyaProvider(stubClosure: { _ in .immediate })
+    }
+}
+
+extension Observable {
+    func authHandler() -> Observable<Element> {
+        return self.do(onError: { (error) in
+            if let e = error as? MoyaError,
+                case let .statusCode(response) = e,
+                response.statusCode == 401 {
+                AuthManager.removeToken()
+            }
+        })
     }
 }

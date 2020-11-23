@@ -114,16 +114,42 @@ struct R: Rswift.Validatable {
   }
   #endif
 
-  /// This `R.image` struct is generated, and contains static references to 4 images.
+  /// This `R.image` struct is generated, and contains static references to 10 images.
   struct image {
+    /// Image `add`.
+    static let add = Rswift.ImageResource(bundle: R.hostingBundle, name: "add")
+    /// Image `back`.
+    static let back = Rswift.ImageResource(bundle: R.hostingBundle, name: "back")
     /// Image `cancel`.
     static let cancel = Rswift.ImageResource(bundle: R.hostingBundle, name: "cancel")
+    /// Image `check`.
+    static let check = Rswift.ImageResource(bundle: R.hostingBundle, name: "check")
     /// Image `empty_content`.
     static let empty_content = Rswift.ImageResource(bundle: R.hostingBundle, name: "empty_content")
+    /// Image `error`.
+    static let error = Rswift.ImageResource(bundle: R.hostingBundle, name: "error")
+    /// Image `home`.
+    static let home = Rswift.ImageResource(bundle: R.hostingBundle, name: "home")
+    /// Image `profile`.
+    static let profile = Rswift.ImageResource(bundle: R.hostingBundle, name: "profile")
     /// Image `selected`.
     static let selected = Rswift.ImageResource(bundle: R.hostingBundle, name: "selected")
     /// Image `unselected`.
     static let unselected = Rswift.ImageResource(bundle: R.hostingBundle, name: "unselected")
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "add", bundle: ..., traitCollection: ...)`
+    static func add(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.add, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "back", bundle: ..., traitCollection: ...)`
+    static func back(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.back, compatibleWith: traitCollection)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "cancel", bundle: ..., traitCollection: ...)`
@@ -133,9 +159,37 @@ struct R: Rswift.Validatable {
     #endif
 
     #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "check", bundle: ..., traitCollection: ...)`
+    static func check(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.check, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
     /// `UIImage(named: "empty_content", bundle: ..., traitCollection: ...)`
     static func empty_content(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.empty_content, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "error", bundle: ..., traitCollection: ...)`
+    static func error(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.error, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "home", bundle: ..., traitCollection: ...)`
+    static func home(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.home, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "profile", bundle: ..., traitCollection: ...)`
+    static func profile(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.profile, compatibleWith: traitCollection)
     }
     #endif
 
@@ -189,10 +243,16 @@ struct R: Rswift.Validatable {
 
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localization` struct is generated, and contains static references to 1 localization keys.
+    /// This `R.string.localization` struct is generated, and contains static references to 4 localization keys.
     struct localization {
       /// Value: No data
       static let commonNoContent = Rswift.StringResource(key: "Common.NoContent", tableName: "Localization", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: login
+      static let loginLoginBtnTitle = Rswift.StringResource(key: "Login.loginBtnTitle", tableName: "Localization", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: password
+      static let loginPassword = Rswift.StringResource(key: "Login.password", tableName: "Localization", bundle: R.hostingBundle, locales: [], comment: nil)
+      /// Value: username
+      static let loginUsername = Rswift.StringResource(key: "Login.username", tableName: "Localization", bundle: R.hostingBundle, locales: [], comment: nil)
 
       /// Value: No data
       static func commonNoContent(preferredLanguages: [String]? = nil) -> String {
@@ -205,6 +265,45 @@ struct R: Rswift.Validatable {
         }
 
         return NSLocalizedString("Common.NoContent", tableName: "Localization", bundle: bundle, comment: "")
+      }
+
+      /// Value: login
+      static func loginLoginBtnTitle(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("Login.loginBtnTitle", tableName: "Localization", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localization", preferredLanguages: preferredLanguages) else {
+          return "Login.loginBtnTitle"
+        }
+
+        return NSLocalizedString("Login.loginBtnTitle", tableName: "Localization", bundle: bundle, comment: "")
+      }
+
+      /// Value: password
+      static func loginPassword(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("Login.password", tableName: "Localization", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localization", preferredLanguages: preferredLanguages) else {
+          return "Login.password"
+        }
+
+        return NSLocalizedString("Login.password", tableName: "Localization", bundle: bundle, comment: "")
+      }
+
+      /// Value: username
+      static func loginUsername(preferredLanguages: [String]? = nil) -> String {
+        guard let preferredLanguages = preferredLanguages else {
+          return NSLocalizedString("Login.username", tableName: "Localization", bundle: hostingBundle, comment: "")
+        }
+
+        guard let (_, bundle) = localeBundle(tableName: "Localization", preferredLanguages: preferredLanguages) else {
+          return "Login.username"
+        }
+
+        return NSLocalizedString("Login.username", tableName: "Localization", bundle: bundle, comment: "")
       }
 
       fileprivate init() {}

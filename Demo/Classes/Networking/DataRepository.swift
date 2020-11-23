@@ -29,6 +29,6 @@ class DataRepository {
 //            .map(LoginResponse.self)
 //            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .default))
 //            .observeOn(MainScheduler.instance)
-//    
+//
 //    }
 //}

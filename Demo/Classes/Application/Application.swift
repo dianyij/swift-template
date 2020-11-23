@@ -37,9 +37,9 @@ final class Application {
 
         var vc: UIViewController
         
-        if loggedIn {
-            let viewModel = HomeViewModel(dataRepository: dataRepository)
-            vc = HomeViewController(viewModel: viewModel)
+        if !loggedIn {
+            let viewModel = RootTabBarViewModel(dataRepository: dataRepository)
+            vc = RootTabBarViewController(viewModel: viewModel)
         } else {
             let viewModel = LoginViewModel(dataRepository: dataRepository)
             vc = LoginViewController(viewModel: viewModel)
@@ -52,9 +52,10 @@ final class Application {
 
     func logout() {
         AuthManager.removeToken()
-//        let vc = LoginViewController()
-//        UIView.transition(with: window, duration: 0.5, options: .transitionFlipFromLeft, animations: {
-//            self.window.rootViewController = vc
-//        }, completion: nil)
+        let viewModel = LoginViewModel(dataRepository: dataRepository)
+        let vc = LoginViewController(viewModel: viewModel)
+        UIView.transition(with: window, duration: 0.5, options: .transitionFlipFromLeft, animations: {
+            self.window.rootViewController = vc
+        }, completion: nil)
     }
 }

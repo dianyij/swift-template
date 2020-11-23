@@ -18,12 +18,19 @@ protocol ViewModelType {
 }
 
 class ViewModel {
+    
     let dataRepository: DataRepository
     var disposeBag = DisposeBag()
     
     var page: Int?
     let headerRefreshTrigger = PublishSubject<Void>()
     let footerRefreshTrigger = PublishSubject<Void>()
+    
+//    let headerLoading = ActivityIndicator()
+//    let footerState = BehaviorRelay(value: RxMJRefreshFooterState.hidden)
+//
+//    let error = ErrorTracker()
+//    let loading = ActivityIndicator()
     
     init(dataRepository: DataRepository) {
         self.dataRepository = dataRepository
@@ -32,4 +39,11 @@ class ViewModel {
     deinit {
         logDebug("\(type(of: self)): deinited")
     }
+    
 }
+
+//extension ViewModel {
+//    func footerStateFromPageParam() -> RxMJRefreshFooterState {
+//        return page == nil ? .noMoreData : .default
+//    }
+//}

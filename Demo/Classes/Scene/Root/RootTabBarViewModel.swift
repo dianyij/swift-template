@@ -26,7 +26,14 @@ extension TabbarItem {
     }
     
     var image: UIImage? {
-        return nil
+        var imageName: String
+        switch self {
+        case .home:
+            imageName = "home"
+        case .profile:
+            imageName = "profile"
+        }
+        return UIImage(named: imageName)
     }
     
     var selectedImage: UIImage? {
@@ -52,7 +59,7 @@ extension TabbarItem {
     }
 }
 
-class HomeTabBarViewModel: ViewModel, ViewModelType {
+class RootTabBarViewModel: ViewModel, ViewModelType {
     struct Input {
         var viewDidAppear: Observable<Void>
     }
@@ -61,7 +68,7 @@ class HomeTabBarViewModel: ViewModel, ViewModelType {
         var tabBarItems: Driver<[TabbarItem]>
     }
     
-    func transform(input: HomeTabBarViewModel.Input) -> HomeTabBarViewModel.Output {
+    func transform(input: RootTabBarViewModel.Input) -> RootTabBarViewModel.Output {
         let items = input.viewDidAppear
             .map { _ in
                 return TabbarItem.allCases

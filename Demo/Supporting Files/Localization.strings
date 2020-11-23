@@ -8,3 +8,8 @@
 
 /* Common */
 "Common.NoContent" = "No data";
+
+/* Login */
+"Login.username" = "username";
+"Login.password" = "password";
+"Login.loginBtnTitle" = "login";
