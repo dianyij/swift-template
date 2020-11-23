@@ -114,6 +114,23 @@ struct R: Rswift.Validatable {
   }
   #endif
 
+  /// This `R.color` struct is generated, and contains static references to 1 colors.
+  struct color {
+    /// Color `white`.
+    static let white = Rswift.ColorResource(bundle: R.hostingBundle, name: "white")
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "white", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func white(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.white, compatibleWith: traitCollection)
+    }
+    #endif
+
+    fileprivate init() {}
+  }
+
   /// This `R.image` struct is generated, and contains static references to 10 images.
   struct image {
     /// Image `add`.

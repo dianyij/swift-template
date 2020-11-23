@@ -30,7 +30,7 @@ class RootTabBarViewController: UITabBarController {
     }
     
     func setupUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = R.color.white()
     }
 
     func bindViewModel() {
