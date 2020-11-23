@@ -75,7 +75,6 @@ class LoginViewController: ViewController {
     }
     
     override func bindViewModel() {
-        
         let input = LoginViewModel.Input(username: username.rx.text.orEmpty,
                                          password: password.rx.text.orEmpty,
                                          loginAction: loginBtn.rx.tap)

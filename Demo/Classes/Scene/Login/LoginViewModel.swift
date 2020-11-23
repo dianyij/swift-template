@@ -24,7 +24,6 @@ class LoginViewModel: ViewModel, ViewModelType {
     }
     
     func transform(input: LoginViewModel.Input) -> LoginViewModel.Output {
-        
         let usernamePassword = Observable.combineLatest(input.username, input.password) { ($0, $1) }
 
         input.loginAction
