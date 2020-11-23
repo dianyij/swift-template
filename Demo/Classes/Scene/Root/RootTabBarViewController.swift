@@ -31,6 +31,11 @@ class RootTabBarViewController: UITabBarController {
     
     func setupUI() {
         view.backgroundColor = R.color.white()
+//        tabBar.tintColor = .systemBlue
+//        tabBar.unselectedItemTintColor = .gray
+//        tabBar.barTintColor = .clear
+//        tabBar.shadowImage = UIImage()
+//        tabBar.backgroundImage = UIImage()
     }
 
     func bindViewModel() {
