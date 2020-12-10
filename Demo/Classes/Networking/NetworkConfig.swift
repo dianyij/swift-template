@@ -11,7 +11,7 @@ import Moya
 import RxSwift
 
 struct NetworkingConstant {
-    static let baseURL: URL = URL(string: AppConfig.baseURL)!
+    static let baseURL: URL = URL(string: Configs.baseURL)!
     static let timeoutInterval: TimeInterval = 15
     static let contentType: String = "application/json"
 }

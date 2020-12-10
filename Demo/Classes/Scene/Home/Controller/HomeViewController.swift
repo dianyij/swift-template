@@ -7,6 +7,11 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import DZNEmptyDataSet
+import KakaJSON
+import NSObject_Rx
 
 class HomeViewController: ViewController {
 
@@ -20,14 +25,13 @@ class HomeViewController: ViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     let aView = UIView(frame: CGRect(x: 100, y: 100, width: 100, height: 100))
 
     override func viewDidLoad() {
-        aView.backgroundColor = .red
         view.addSubview(aView)
-        aView.addTapGesture { [weak aView] _ in
-            aView?.blink()
-        }
+        aView.backgroundColor = .red
+        aView.layer.cornerRadius = 8
     }
+    
 }
