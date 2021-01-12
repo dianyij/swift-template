@@ -18,22 +18,16 @@ enum TabbarItem: CaseIterable {
 extension TabbarItem {
     var title: String {
         switch self {
-        case .home:
-            return "home"
-        case .profile:
-            return "profile"
+        case .home: return R.string.localization.tabBarHomeTitle()
+        case .profile: return R.string.localization.tabBarProfileTitle()
         }
     }
     
     var image: UIImage? {
-        var imageName: String
         switch self {
-        case .home:
-            imageName = "home"
-        case .profile:
-            imageName = "profile"
+        case .home: return R.image.tabbar_home()
+        case .profile: return R.image.tabbar_profile()
         }
-        return UIImage(named: imageName)
     }
     
     var selectedImage: UIImage? {

@@ -32,6 +32,11 @@ class HomeViewController: ViewController {
         view.addSubview(aView)
         aView.backgroundColor = .red
         aView.layer.cornerRadius = 8
+        aView.rx.tapGesture().bind { ges in
+            
+            
+            print(ges.view?.width ?? 0)
+        }.disposed(by: rx.disposeBag)
     }
     
 }

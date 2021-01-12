@@ -9,5 +9,5 @@
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
-BASE_URL = https:/$()/api.sandbox.com/v1/
+BASE_URL = https:/$()/5fbafc50cc6c9d001624a73b.mockapi.io/api/v1/
 ENABLE_NETWORK_LOGGING = YES

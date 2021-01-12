@@ -1,5 +1,5 @@
 //
-//  AppConfig.swift
+//  Konfigs.swift
 //  Demo
 //
 //  Created by dianyi jiang on 2020-08-27.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Configs {
+struct Konfigs {
     static let baseURL: String = Bundle.main["BASE_URL"]
     static let enableNetworkingLogging: Bool = Bundle.main["ENABLE_NETWORK_LOGGING"] == "YES"
     

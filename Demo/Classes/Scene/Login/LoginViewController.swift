@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class LoginViewController: ViewController {
     
@@ -42,7 +44,7 @@ class LoginViewController: ViewController {
     
     lazy var loginBtn: UIButton = {
         let view = UIButton(type: .system)
-        view.setTitle(R.string.localization.loginLoginBtnTitle(), for: .normal)
+        view.setTitle(R.string.localization.loginLoginButtonTitle(), for: .normal)
         view.backgroundColor = .blue
         return view
     }()
@@ -90,9 +92,68 @@ class LoginViewController: ViewController {
                 self?.view.endEditing(true)
             }).disposed(by: rx.disposeBag)
         
-//        viewModel.error
-//            .map { $0.resolve() }
-//            .drive(rx.showError)
-//            .disposed(by: rx.disposeBag)
+//        let left = PublishSubject<String>()
+//        let center = PublishSubject<String>()
+//        let right = PublishSubject<String>()
+//
+//        let observable = Observable.combineLatest([left, center, right]) { strings in
+////            strings.joined(separator: " ")
+//            "\(strings)"
+//        }
+//
+//    _ = observable.subscribe(onNext: { value in print(value) })
+//
+//        print("> Sending a value to Left")
+//        left.onNext("Hello,")
+//        print("> Sending a value to Right")
+//        right.onNext("world")
+//        print("> Sending another value to Right")
+//        right.onNext("RxSwift")
+//        print("> Sending another value to Right")
+//        right.onNext("Have a good day,")
+//        left.onCompleted()
+//        right.onCompleted()
+//
+        
+//        enum Weather {
+//            case cloudy
+//            case sunny
+//        }
+//        let left: Observable<Weather> = Observable.of(.sunny, .cloudy, .cloudy, .sunny)
+//        let right = Observable.of("Lisbon", "Copenhagen", "London")
+//        let observable = Observable.zip(left, right) { weather, city in
+//            return "It's \(weather) in \(city)"
+//        }
+//        _ = observable.subscribe(onNext: { value in
+//            print(value)
+//        })
+       
+        let seq = PublishSubject<Int>()
+        let a = seq.map { (i) -> Int in
+            print("MAP---\(i)")
+            return i * 2
+        }
+        .share(replay: 1, scope: .forever)
+        
+        _ = a.subscribe(onNext: { (num) in
+            print("--1--\(num)")
+        }, onError: nil, onCompleted: nil, onDisposed: nil)
+        
+        seq.onNext(1)
+        seq.onNext(2)
+
+        _ = a.subscribe(onNext: { (num) in
+            print("--2--\(num)")
+        }, onError: nil, onCompleted: nil, onDisposed: nil)
+        
+        seq.onNext(3)
+        seq.onNext(4)
+        
+        _ = a.subscribe(onNext: { (num) in
+            print("--3--\(num)")
+        }, onError: nil, onCompleted: nil, onDisposed: nil)
+        
+        seq.onCompleted()
+        
     }
 }

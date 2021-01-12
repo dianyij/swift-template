@@ -1,0 +1,40 @@
+/* 
+  Localization.strings
+  Demo
+
+  Created by dianyi jiang on 27/08/20.
+  Copyright © 2020 ORG. All rights reserved.
+*/
+
+/* Common */
+"Common.Yes" = "Yes";
+"Common.No" = "No";
+"Common.OK" = "OK";
+"Common.Cancel" = "Cancel";
+"Common.Done" = "Done";
+"Common.Back" = "Back";
+"Common.Close" = "Close";
+"Common.Edit" = "Edit";
+"Common.Next" = "Next";
+"Common.Skip" = "Skip";
+"Common.Reset" = "Reset";
+"Common.Save" = "Save";
+"Common.Delete" = "Delete";
+"Common.Search" = "Search";
+"Common.Success" = "Success";
+"Common.Error" = "Error";
+"Common.NoResults" = "No Results";
+"Common.NoContent" = "No data";
+
+/* Toast */
+"Toast.ConnectionBack.Message" = "Back online";
+"Toast.ConnectionLost.Message" = "No connection";
+
+/* Home TabBar */
+"TabBar.Home.Title" = "Home";
+"TabBar.Profile.Title" = "Profile";
+
+/* Login */
+"Login.Username" = "username";
+"Login.Password" = "password";
+"Login.LoginButton.Title" = "login";

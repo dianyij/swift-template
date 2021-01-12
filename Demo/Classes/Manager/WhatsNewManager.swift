@@ -64,7 +64,7 @@ class WhatsNewManager: NSObject {
     
     private func versionStore() -> KeyValueWhatsNewVersionStore {
         let versionStore = KeyValueWhatsNewVersionStore(keyValueable: UserDefaults.standard,
-                                                        prefixIdentifier: Configs.App.bundleIdentifier)
+                                                        prefixIdentifier: Konfigs.App.bundleIdentifier)
         return versionStore
     }
 }

@@ -31,17 +31,18 @@ class LibsManager: NSObject {
     
     static let shared = LibsManager()
 
-    let bannersEnabled = BehaviorRelay(value: UserDefaults.standard.bool(forKey: Configs.UserDefaultsKeys.bannersEnabled))
-    
+    let bannersEnabled = BehaviorRelay(value: UserDefaults.standard.bool(forKey: Konfigs.UserDefaultsKeys.bannersEnabled))
+//    bannerEnabled = BehaviorRelay(value: LibsManager.shared.bannersEnabled.value)
+
     private override init() {
         super.init()
         
-        if UserDefaults.standard.object(forKey: Configs.UserDefaultsKeys.bannersEnabled) == nil {
+        if UserDefaults.standard.object(forKey: Konfigs.UserDefaultsKeys.bannersEnabled) == nil {
             bannersEnabled.accept(true)
         }
         
         bannersEnabled.skip(1).subscribe(onNext: { (enabled) in
-            UserDefaults.standard.set(enabled, forKey: Configs.UserDefaultsKeys.bannersEnabled)
+            UserDefaults.standard.set(enabled, forKey: Konfigs.UserDefaultsKeys.bannersEnabled)
 //            analytics.set(.adsEnabled(value: enabled))
         }).disposed(by: rx.disposeBag)
     }

@@ -18,13 +18,7 @@ class ViewController: UIViewController {
     let isLoading = BehaviorRelay(value: false)
     
     var automaticallyAdjustsLeftBarButtonItem = true
-    
-    var navigationTitle = "" {
-        didSet {
-            navigationItem.title = navigationTitle
-        }
-    }
-    
+    var navigationTitle = "" { didSet { navigationItem.title = navigationTitle } }
     var emptyDataSetTitle = R.string.localization.commonNoContent()
     var emptyDataSetImage = R.image.empty_content()
     var emptyDataSetImageTintColor = BehaviorRelay<UIColor?>(value: nil)
@@ -76,13 +70,9 @@ class ViewController: UIViewController {
         view.backgroundColor = .white
     }
     
-    func bindViewModel() {
-        
-    }
+    func bindViewModel() { }
     
-    func updateUI() {
-        
-    }
+    func updateUI() { }
     
     func orientationChanged() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
