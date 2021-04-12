@@ -37,7 +37,7 @@ final class Application {
 
         var vc: UIViewController
         
-        if loggedIn {
+        if !loggedIn {
             let viewModel = RootTabBarViewModel(dataRepository: dataRepository)
             vc = RootTabBarViewController(viewModel: viewModel)
         } else {

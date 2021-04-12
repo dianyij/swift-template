@@ -20,7 +20,7 @@ class DataRepository {
     private init() {}
 }
 
-//extension DataRepository {
+// extension DataRepository {
 //    func login(username: String, password: String) -> Observable<LoginResponse> {
 //        return apiService.rx.request(Account.login(param: ["userIdentity": username, "password": password]).asMultiTarget)
 //            .asObservable()
@@ -31,4 +31,4 @@ class DataRepository {
 //            .observeOn(MainScheduler.instance)
 //
 //    }
-//}
+// }

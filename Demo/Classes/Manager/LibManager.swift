@@ -14,7 +14,7 @@ import CocoaLumberjack
 import RxSwift
 import RxCocoa
 #if DEBUG
-import FLEX
+    import FLEX
 #endif
 import NVActivityIndicatorView
 import NSObject_Rx
@@ -24,11 +24,11 @@ import RxGesture
 import SwifterSwift
 import SwiftDate
 import Hero
-//import Firebase
-//import FirebaseCrashlytics
+// import Firebase
+// import FirebaseCrashlytics
 
 class LibsManager: NSObject {
-    
+
     static let shared = LibsManager()
 
     let bannersEnabled = BehaviorRelay(value: UserDefaults.standard.bool(forKey: Konfigs.UserDefaultsKeys.bannersEnabled))
@@ -36,11 +36,11 @@ class LibsManager: NSObject {
 
     private override init() {
         super.init()
-        
+
         if UserDefaults.standard.object(forKey: Konfigs.UserDefaultsKeys.bannersEnabled) == nil {
             bannersEnabled.accept(true)
         }
-        
+
         bannersEnabled.skip(1).subscribe(onNext: { (enabled) in
             UserDefaults.standard.set(enabled, forKey: Konfigs.UserDefaultsKeys.bannersEnabled)
 //            analytics.set(.adsEnabled(value: enabled))
@@ -59,26 +59,26 @@ class LibsManager: NSObject {
     func setupCocoaLumberjack() {
         DDLog.add(DDOSLogger.sharedInstance)
         let fileLogger: DDFileLogger = DDFileLogger() // File Logger
-        fileLogger.rollingFrequency = TimeInterval(60*60*24)  // 24 hours
+        fileLogger.rollingFrequency = TimeInterval(60 * 60 * 24) // 24 hours
         fileLogger.logFileManager.maximumNumberOfLogFiles = 7
         DDLog.add(fileLogger)
     }
 
     func setupFLEX() {
         #if DEBUG
-        FLEXManager.shared.isNetworkDebuggingEnabled = true
+            FLEXManager.shared.isNetworkDebuggingEnabled = true
         #endif
     }
-    
+
     func setupAnalytics() {
 //        FirebaseApp.configure()
 //        FirebaseConfiguration.shared.setLoggerLevel(.min)
     }
-    
+
     func setupAds() {
 //        GADMobileAds.sharedInstance().start(completionHandler: nil)
     }
-    
+
     func setupKeyboardManager() {
         IQKeyboardManager.shared.enable = true
     }
@@ -92,7 +92,7 @@ class LibsManager: NSObject {
 extension LibsManager {
     func showFlex() {
         #if DEBUG
-        FLEXManager.shared.showExplorer()
+            FLEXManager.shared.showExplorer()
 //        analytics.log(.flexOpened)
         #endif
     }

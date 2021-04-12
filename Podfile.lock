@@ -1,84 +1,27 @@
 PODS:
-  - AcknowList (1.9.5)
-  - Alamofire (5.4.0)
+  - AcknowList (2.0.0)
+  - Alamofire (5.4.2)
   - BonMot (5.6.0)
-  - CocoaLumberjack/Core (3.7.0)
-  - CocoaLumberjack/Swift (3.7.0):
+  - CocoaLumberjack/Core (3.7.2)
+  - CocoaLumberjack/Swift (3.7.2):
     - CocoaLumberjack/Core
   - DateToolsSwift (5.0.0)
   - Device (3.2.1)
   - Differentiator (4.0.1)
   - DZNEmptyDataSet (1.8.1)
-  - Firebase (7.3.0):
-    - Firebase/Core (= 7.3.0)
-  - Firebase/Core (7.3.0):
-    - Firebase/CoreOnly
-    - FirebaseAnalytics (= 7.3.0)
-  - Firebase/CoreOnly (7.3.0):
-    - FirebaseCore (= 7.3.0)
-  - FirebaseAnalytics (7.3.0):
-    - FirebaseCore (~> 7.0)
-    - FirebaseInstallations (~> 7.0)
-    - GoogleAppMeasurement (= 7.3.0)
-    - GoogleUtilities/AppDelegateSwizzler (~> 7.0)
-    - GoogleUtilities/MethodSwizzler (~> 7.0)
-    - GoogleUtilities/Network (~> 7.0)
-    - "GoogleUtilities/NSData+zlib (~> 7.0)"
-    - nanopb (~> 2.30906.0)
-  - FirebaseCore (7.3.0):
-    - FirebaseCoreDiagnostics (~> 7.0)
-    - GoogleUtilities/Environment (~> 7.0)
-    - GoogleUtilities/Logger (~> 7.0)
-  - FirebaseCoreDiagnostics (7.3.0):
-    - GoogleDataTransport (~> 8.0)
-    - GoogleUtilities/Environment (~> 7.0)
-    - GoogleUtilities/Logger (~> 7.0)
-    - nanopb (~> 2.30906.0)
-  - FirebaseInstallations (7.3.0):
-    - FirebaseCore (~> 7.0)
-    - GoogleUtilities/Environment (~> 7.0)
-    - GoogleUtilities/UserDefaults (~> 7.0)
-    - PromisesObjC (~> 1.2)
-  - FLEX (4.2.2)
-  - FloatingPanel (2.0.1)
-  - GoogleAppMeasurement (7.3.0):
-    - GoogleUtilities/AppDelegateSwizzler (~> 7.0)
-    - GoogleUtilities/MethodSwizzler (~> 7.0)
-    - GoogleUtilities/Network (~> 7.0)
-    - "GoogleUtilities/NSData+zlib (~> 7.0)"
-    - nanopb (~> 2.30906.0)
-  - GoogleDataTransport (8.1.0):
-    - nanopb (~> 2.30906.0)
-  - GoogleUtilities/AppDelegateSwizzler (7.1.1):
-    - GoogleUtilities/Environment
-    - GoogleUtilities/Logger
-    - GoogleUtilities/Network
-  - GoogleUtilities/Environment (7.1.1):
-    - PromisesObjC (~> 1.2)
-  - GoogleUtilities/Logger (7.1.1):
-    - GoogleUtilities/Environment
-  - GoogleUtilities/MethodSwizzler (7.1.1):
-    - GoogleUtilities/Logger
-  - GoogleUtilities/Network (7.1.1):
-    - GoogleUtilities/Logger
-    - "GoogleUtilities/NSData+zlib"
-    - GoogleUtilities/Reachability
-  - "GoogleUtilities/NSData+zlib (7.1.1)"
-  - GoogleUtilities/Reachability (7.1.1):
-    - GoogleUtilities/Logger
-  - GoogleUtilities/UserDefaults (7.1.1):
-    - GoogleUtilities/Logger
-  - Hero (1.5.0)
+  - FLEX (4.4.1)
+  - FloatingPanel (2.3.0)
+  - Hero (1.6.1)
   - HMSegmentedControl (1.5.6)
-  - InputBarAccessoryView (5.2.2):
-    - InputBarAccessoryView/Core (= 5.2.2)
-  - InputBarAccessoryView/Core (5.2.2)
+  - InputBarAccessoryView (5.3.1):
+    - InputBarAccessoryView/Core (= 5.3.1)
+  - InputBarAccessoryView/Core (5.3.1)
   - IQKeyboardManagerSwift (6.5.6)
   - KakaJSON (1.1.2)
-  - KeychainAccess (4.2.1)
+  - KeychainAccess (4.2.2)
   - MBProgressHUD (1.2.0)
-  - MessageKit (3.4.2):
-    - InputBarAccessoryView (~> 5.2.1)
+  - MessageKit (3.6.0):
+    - InputBarAccessoryView (~> 5.3.1)
   - MJRefresh (3.5.0)
   - Moya/Core (14.0.0):
     - Alamofire (~> 5.0)
@@ -86,20 +29,14 @@ PODS:
     - Moya/Core
     - RxSwift (~> 5.0)
   - MultiProgressView (1.3.0)
-  - nanopb (2.30906.0):
-    - nanopb/decode (= 2.30906.0)
-    - nanopb/encode (= 2.30906.0)
-  - nanopb/decode (2.30906.0)
-  - nanopb/encode (2.30906.0)
   - Nimble (9.0.0)
   - "NSObject+Rx (5.1.0)":
     - RxSwift (~> 5.1)
   - NVActivityIndicatorView (5.1.1):
     - NVActivityIndicatorView/Base (= 5.1.1)
   - NVActivityIndicatorView/Base (5.1.1)
-  - PromisesObjC (1.2.11)
-  - Quick (3.0.0)
-  - R.swift (5.3.0):
+  - Quick (3.1.2)
+  - R.swift (5.4.0):
     - R.swift.Library (~> 5.3.0)
   - R.swift.Library (5.3.0)
   - RAMAnimatedTabBarController (5.2.0)
@@ -122,7 +59,7 @@ PODS:
     - RxSwift (~> 5)
   - RxRelay (5.1.1):
     - RxSwift (~> 5)
-  - RxSwift (5.1.1)
+  - RxSwift (5.1.2)
   - RxSwiftExt (5.2.0):
     - RxSwiftExt/Core (= 5.2.0)
     - RxSwiftExt/RxCocoa (= 5.2.0)
@@ -134,9 +71,9 @@ PODS:
   - RxViewController (1.0.0):
     - RxCocoa (~> 5.0)
     - RxSwift (~> 5.0)
-  - SDWebImage (5.10.0):
-    - SDWebImage/Core (= 5.10.0)
-  - SDWebImage/Core (5.10.0)
+  - SDWebImage (5.11.0):
+    - SDWebImage/Core (= 5.11.0)
+  - SDWebImage/Core (5.11.0)
   - SnapKit (5.0.1)
   - SwiftDate (6.3.1)
   - SwifterSwift (5.2.0):
@@ -164,7 +101,7 @@ PODS:
   - SwifterSwift/StoreKit (5.2.0)
   - SwifterSwift/SwiftStdlib (5.2.0)
   - SwifterSwift/UIKit (5.2.0)
-  - SwiftLint (0.41.0)
+  - SwiftLint (0.43.1)
   - Toast-Swift (5.0.1)
   - "UITextView+Placeholder (1.4.0)"
   - WhatsNewKit (1.3.7)
@@ -176,7 +113,6 @@ DEPENDENCIES:
   - DateToolsSwift
   - Device
   - DZNEmptyDataSet
-  - Firebase
   - FLEX
   - FloatingPanel
   - Hero
@@ -224,16 +160,8 @@ SPEC REPOS:
     - Device
     - Differentiator
     - DZNEmptyDataSet
-    - Firebase
-    - FirebaseAnalytics
-    - FirebaseCore
-    - FirebaseCoreDiagnostics
-    - FirebaseInstallations
     - FLEX
     - FloatingPanel
-    - GoogleAppMeasurement
-    - GoogleDataTransport
-    - GoogleUtilities
     - Hero
     - HMSegmentedControl
     - InputBarAccessoryView
@@ -245,11 +173,9 @@ SPEC REPOS:
     - MJRefresh
     - Moya
     - MultiProgressView
-    - nanopb
     - Nimble
     - "NSObject+Rx"
     - NVActivityIndicatorView
-    - PromisesObjC
     - Quick
     - R.swift
     - R.swift.Library
@@ -275,42 +201,32 @@ SPEC REPOS:
     - WhatsNewKit
 
 SPEC CHECKSUMS:
-  AcknowList: 485f0e0da8ff7d5aaa8fb54bbff1da1f065e496c
-  Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
+  AcknowList: 632233845749d861dc4666ee801e0efd082de506
+  Alamofire: bfbc4c2fe5909b1d94fb4ef2277c6b3727ef5dae
   BonMot: 2217a66e5ddc6a8d2ffb759fe8c85a8528e0d3e7
-  CocoaLumberjack: e8955b9d337ac307103b0a34fd141c32f27e53c5
+  CocoaLumberjack: b7e05132ff94f6ae4dfa9d5bce9141893a21d9da
   DateToolsSwift: 4207ada6ad615d8dc076323d27037c94916dbfa6
   Device: 0738862dd8a30856b4bd9e21cb9b728873d21392
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  Firebase: 26223c695fe322633274198cb19dca8cb7e54416
-  FirebaseAnalytics: 2580c2d62535ae7b644143d48941fcc239ea897a
-  FirebaseCore: 4d3c72622ce0e2106aaa07bb4b2935ba2c370972
-  FirebaseCoreDiagnostics: d50e11039e5984d92c8a512be2395f13df747350
-  FirebaseInstallations: 971df89b48ae5ee4cc2bf6935f3857a525d28550
-  FLEX: dbd68ae9c67fcc872c79c9e5a728f38243dfaa78
-  FloatingPanel: 579a5ac0154f923a9d7302c4f13dbc0268511c92
-  GoogleAppMeasurement: 8d3c0aeede16ab7764144b5a4ca8e1d4323841b7
-  GoogleDataTransport: 116c84c4bdeb76be2a7a46de51244368f9794eab
-  GoogleUtilities: 3dc4ff0d5e4840e2fa8eef0889620e8c33d4218c
-  Hero: b7385b75e7259da62f4f85462f59a5082d66b058
+  FLEX: 7ca2c8cd3a435ff501ff6d2f2141e9bdc934eaab
+  FloatingPanel: 373478513a197cf140abd219ca9a9c049967332b
+  Hero: 215865ba3ae41dd9bb08cd6c60a645529c6fc94b
   HMSegmentedControl: 34c1f54d822d8308e7b24f5d901ec674dfa31352
-  InputBarAccessoryView: 8ec44fced9840957831f7ab842e9c4fe6ff9a252
+  InputBarAccessoryView: 1f75d8c9f75e5e57f3ffac36ed58635a8005e0bc
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   KakaJSON: cc5ff50a8c1cfbb09413db8496cb709a209e6137
-  KeychainAccess: 9b07f665298d13c3a85881bd3171f6f49b8151c1
+  KeychainAccess: c0c4f7f38f6fc7bbe58f5702e25f7bd2f65abf51
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
-  MessageKit: 5ff0908bce5a7b6e11bd0b60e13a33e03697d161
+  MessageKit: a8efaf55b021672b19ffdd5a85ce1c2f3b53058e
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   MultiProgressView: 65e5bb8181687099ade56d16d85d245a92fafa96
-  nanopb: 1bf24dd71191072e120b83dd02d08f3da0d65e53
   Nimble: 3b4ec3fd40f1dc178058e0981107721c615643d8
   "NSObject+Rx": fa6bbcc1ab1faa06b01466bc09b1e0692bbc5946
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
-  PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
-  Quick: 6d9559f40647bc4d510103842ef2fdd882d753e2
-  R.swift: 4170fb7161c67be3bc1a847040b79367d69c419f
+  Quick: 60f0ea3b8e0cfc0df3259a5c06a238ad8b3c46e0
+  R.swift: c533450b0f7dc494e0993f5f1a1db925d84c3006
   R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
   RAMAnimatedTabBarController: 6863a386e7ae2ab227cd60aa73ab8ff56cdacfdd
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
@@ -321,18 +237,18 @@ SPEC CHECKSUMS:
   RxGesture: d6bd7447ca3a596c7a9702a6a2b6a2bb5d8bae54
   RxOptional: b1fcd60856807a564c0215c2184b8d33e7826dc2
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
-  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
+  RxSwift: 1e2e1f9570186967f617e49128ed26ccf1bafc8e
   RxSwiftExt: 4ca80336f43c28f11a2825cdd2fc61dd6c044697
   RxViewController: 7330a46e5c31cd680db169da4c9fc8676e975a81
-  SDWebImage: 9169792e9eec3e45bba2a0c02f74bf8bd922d1ee
+  SDWebImage: 7acbb57630ac7db4a495547fb73916ff3e432f6b
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftDate: 72d28954e8e1c6c1c0f917ccc8005e4f83c7d4b2
   SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
-  SwiftLint: c585ebd615d9520d7fbdbe151f527977b0534f1e
+  SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
   Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
   "UITextView+Placeholder": d7b0c400921f66523f3a85d74f774512e14f6502
   WhatsNewKit: c87028c4059dccd113495422801914cc53f6aab0
 
-PODFILE CHECKSUM: d103c7eebbd4a5e3d689d469ae0d710b47e1ee93
+PODFILE CHECKSUM: 6ef45f7ec76e7c1826a31b6e64141dab9604b362
 
 COCOAPODS: 1.10.0

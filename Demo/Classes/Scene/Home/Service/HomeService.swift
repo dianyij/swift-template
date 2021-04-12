@@ -19,16 +19,16 @@ protocol HomeServiceType {
     func getPages(_ api: HomeApi) -> Observable<String>
 }
 
-//final class HomeService: HomeServiceType {
+// final class HomeService: HomeServiceType {
 //    var pages: Observable<[Home]?>
 //    var defaultPages: [Home] = [Home()]
-//    
+//
 //    func getPages(_ api: HomeApi) -> Observable<String> {
-//        
+//
 //    }
-//    
+//
 //    fileprivate let networking = Networking<HomeApi>(plugins: [CookiePlugin()])
-//    
-//    
-//    
-//}
+//
+//
+//
+// }

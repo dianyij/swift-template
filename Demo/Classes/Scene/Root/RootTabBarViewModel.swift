@@ -15,6 +15,8 @@ enum TabbarItem: CaseIterable {
     case profile
 }
 
+// swiftlint:disable force_cast
+
 extension TabbarItem {
     var title: String {
         switch self {
@@ -45,7 +47,7 @@ extension TabbarItem {
         }
     }
     
-     func viewController(for viewModel: ViewModel) -> UIViewController {
+    func viewController(for viewModel: ViewModel) -> UIViewController {
         let vc = getViewController(with: viewModel)
         let tabBarItem = UITabBarItem(title: title, image: image, selectedImage: selectedImage)
         vc.tabBarItem = tabBarItem

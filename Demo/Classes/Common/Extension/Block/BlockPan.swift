@@ -10,7 +10,7 @@
 
 import UIKit
 
-///Make sure you use  "[weak self] (gesture) in" if you are using the keyword self inside the closure or there might be a memory leak
+/// Make sure you use  "[weak self] (gesture) in" if you are using the keyword self inside the closure or there might be a memory leak
 open class BlockPan: UIPanGestureRecognizer {
     private var panAction: ((UIPanGestureRecognizer) -> Void)?
 

@@ -389,7 +389,7 @@ extension String {
         return urls
     }
 
-    ///Returns the first index of the occurency of the character in String
+    /// Returns the first index of the occurency of the character in String
     public func getIndexOf(_ char: Character) -> Int? {
         for (index, c) in self.enumerated() where c == char {
             return index
@@ -447,7 +447,7 @@ extension String {
 
     #if os(iOS)
 
-        ///Returns hight of rendered string
+        /// Returns hight of rendered string
         public func height(_ width: CGFloat, font: UIFont, lineBreakMode: NSLineBreakMode?) -> CGFloat {
             var attrib: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: font]
             if lineBreakMode != nil {
@@ -463,7 +463,7 @@ extension String {
 
     #if os(iOS)
 
-        ///Returns underlined NSAttributedString
+        /// Returns underlined NSAttributedString
         public func underline() -> NSAttributedString {
             let underlineString = NSAttributedString(string: self, attributes: [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue])
             return underlineString
@@ -473,7 +473,7 @@ extension String {
 
     #if os(iOS)
 
-        ///Returns italic NSAttributedString
+        /// Returns italic NSAttributedString
         public func italic() -> NSAttributedString {
             let italicString = NSMutableAttributedString(string: self, attributes: [NSAttributedString.Key.font: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
             return italicString
@@ -483,13 +483,13 @@ extension String {
 
     #if os(iOS) || os(tvOS)
 
-        ///Returns NSAttributedString
+        /// Returns NSAttributedString
         public func color(_ color: UIColor) -> NSAttributedString {
             let colorString = NSMutableAttributedString(string: self, attributes: [NSAttributedString.Key.foregroundColor: color])
             return colorString
         }
 
-        ///Returns NSAttributedString
+        /// Returns NSAttributedString
         public func colorSubString(_ subString: String, color: UIColor) -> NSMutableAttributedString {
             var start = 0
             var ranges: [NSRange] = []

@@ -16,12 +16,12 @@ import NSObject_Rx
 class HomeViewController: ViewController {
 
     var viewModel: HomeViewModel
-    
+
     init(viewModel: HomeViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -33,10 +33,8 @@ class HomeViewController: ViewController {
         aView.backgroundColor = .red
         aView.layer.cornerRadius = 8
         aView.rx.tapGesture().bind { ges in
-            
-            
             print(ges.view?.width ?? 0)
         }.disposed(by: rx.disposeBag)
     }
-    
+
 }

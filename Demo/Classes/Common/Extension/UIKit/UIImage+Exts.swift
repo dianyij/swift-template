@@ -153,7 +153,7 @@ public extension UIImage {
          */
     convenience init?(fromView view: UIView) {
         UIGraphicsBeginImageContextWithOptions(view.bounds.size, false, 0)
-        //view.drawViewHierarchyInRect(view.bounds, afterScreenUpdates: true)
+        // view.drawViewHierarchyInRect(view.bounds, afterScreenUpdates: true)
         view.layer.render(in: UIGraphicsGetCurrentContext()!)
         self.init(cgImage: (UIGraphicsGetImageFromCurrentImageContext()?.cgImage!)!)
         UIGraphicsEndImageContext()
@@ -362,7 +362,7 @@ public extension UIImage {
         // Set the quality level to use when rescaling
         context!.interpolationQuality = CGInterpolationQuality(rawValue: 3)!
 
-        //CGContextSetInterpolationQuality(context, CGInterpolationQuality(kCGInterpolationHigh.value))
+        // CGContextSetInterpolationQuality(context, CGInterpolationQuality(kCGInterpolationHigh.value))
 
         // Draw into the context; this scales the image
         context?.draw(self.cgImage!, in: rect)

@@ -42,8 +42,8 @@ class ViewModel {
     
 }
 
-//extension ViewModel {
+// extension ViewModel {
 //    func footerStateFromPageParam() -> RxMJRefreshFooterState {
 //        return page == nil ? .noMoreData : .default
 //    }
-//}
+// }
