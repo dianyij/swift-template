@@ -11,8 +11,8 @@ import UIKit
 struct Konfigs {
 
     struct App {
-        static let bundleIdentifier = "com.public.SwiftHub"
         static let baseURL: String = Bundle.main["BASE_URL"]
+        static let bundleIdentifier = "com.public.DEMO"
     }
     
     struct Network {

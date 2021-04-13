@@ -13,7 +13,6 @@
 		151CD3F224F7A8B1006F3D9C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151CD3F124F7A8B1006F3D9C /* User.swift */; };
 		151CD3F424F7AC46006F3D9C /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151CD3F324F7AC46006F3D9C /* LogManager.swift */; };
 		151CD3F624F7ACA6006F3D9C /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151CD3F524F7ACA6006F3D9C /* AuthManager.swift */; };
-		151CD40824F8AF7B006F3D9C /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151CD40724F8AF7B006F3D9C /* NetworkConfig.swift */; };
 		151CD40A24F8AFA4006F3D9C /* AccountAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151CD40924F8AFA4006F3D9C /* AccountAPI.swift */; };
 		1565745124F7162F00D10FD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1565745024F7162F00D10FD3 /* AppDelegate.swift */; };
 		1565745324F7162F00D10FD3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1565745224F7162F00D10FD3 /* SceneDelegate.swift */; };
@@ -103,7 +102,6 @@
 		151CD3F124F7A8B1006F3D9C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		151CD3F324F7AC46006F3D9C /* LogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
 		151CD3F524F7ACA6006F3D9C /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
-		151CD40724F8AF7B006F3D9C /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
 		151CD40924F8AFA4006F3D9C /* AccountAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAPI.swift; sourceTree = "<group>"; };
 		1565744D24F7162F00D10FD3 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1565745024F7162F00D10FD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -544,7 +542,6 @@
 		DEB63DB226240169008CCC63 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				151CD40724F8AF7B006F3D9C /* NetworkConfig.swift */,
 				DEB63DB626240359008CCC63 /* NetworkProvider.swift */,
 				DEB63DBB262403F8008CCC63 /* NetworkError.swift */,
 				DEB63DC02624081B008CCC63 /* NetworkService.swift */,
@@ -911,7 +908,6 @@
 				151CD38B24F7640B006F3D9C /* Konfigs.swift in Sources */,
 				DE8B53A325760E6D001E80E9 /* HomeService.swift in Sources */,
 				151CD3ED24F76E67006F3D9C /* PlainTableView.swift in Sources */,
-				151CD40824F8AF7B006F3D9C /* NetworkConfig.swift in Sources */,
 				DE86FDC22582B7F6002839A6 /* UIFont+Exts.swift in Sources */,
 				DE0F281E257CDAF100D6E03F /* Reachability.swift in Sources */,
 				1565748324F7238300D10FD3 /* Application.swift in Sources */,
