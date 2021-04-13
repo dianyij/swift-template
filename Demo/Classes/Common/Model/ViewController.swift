@@ -25,9 +25,9 @@ class ViewController: UIViewController {
     
     lazy var closeBarButton: UIBarButtonItem = {
         let view = UIBarButtonItem(image: R.image.cancel(),
-                                 style: .plain,
-                                 target: self,
-                                 action: nil)
+                                   style: .plain,
+                                   target: self,
+                                   action: nil)
         return view
     }()
     
@@ -97,6 +97,14 @@ class ViewController: UIViewController {
             return "unknow viewcontroller class"
         }
         return String(`class`)
+    }
+}
+
+extension ViewController {
+    func showError(error: NetworkError) {
+        let alert = UIAlertController(title: "Error", message: error.description, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 }
 

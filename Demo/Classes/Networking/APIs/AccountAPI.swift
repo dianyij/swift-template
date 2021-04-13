@@ -17,7 +17,8 @@ enum Account {
 
 extension Account: TargetType {
     var baseURL: URL {
-        return NetworkingConstant.baseURL
+        let url = URL(string: Konfigs.Network.baseURL)!
+        return url
     }
 
     var path: String {
@@ -56,7 +57,7 @@ extension Account: TargetType {
     }
 
     var headers: [String: String]? {
-        return ["Content-Type": "application/json"]
+        return Konfigs.Network.headerContentTypeJSON
     }
 
     // data for testing

@@ -70,15 +70,16 @@ class RootTabBarViewModel: ViewModel, ViewModelType {
                 return TabbarItem.allCases
             }
             .asDriver(onErrorJustReturn: [])
+        
         return Output(tabBarItems: items)
     }
     
     func viewModel(for tabBarItem: TabbarItem) -> ViewModel {
         switch tabBarItem {
         case .home:
-            return HomeViewModel(dataRepository: dataRepository)
+            return HomeViewModel()
         case .profile:
-            return ProfileViewModel(dataRepository: dataRepository)
+            return ProfileViewModel()
         }
     }
 }

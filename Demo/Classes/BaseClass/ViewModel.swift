@@ -19,7 +19,6 @@ protocol ViewModelType {
 
 class ViewModel {
     
-    let dataRepository: DataRepository
     var disposeBag = DisposeBag()
     
     var page: Int?
@@ -31,10 +30,6 @@ class ViewModel {
 //
 //    let error = ErrorTracker()
 //    let loading = ActivityIndicator()
-    
-    init(dataRepository: DataRepository) {
-        self.dataRepository = dataRepository
-    }
     
     deinit {
         logDebug("\(type(of: self)): deinited")

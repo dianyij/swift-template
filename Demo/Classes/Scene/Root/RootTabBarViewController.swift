@@ -8,9 +8,10 @@
 
 import UIKit
 import RxViewController
+import WhatsNewKit
 
 class RootTabBarViewController: UITabBarController {
-
+    
     var viewModel: RootTabBarViewModel
     
     init(viewModel: RootTabBarViewModel) {
@@ -21,7 +22,7 @@ class RootTabBarViewController: UITabBarController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -31,17 +32,17 @@ class RootTabBarViewController: UITabBarController {
     
     func setupUI() {
         view.backgroundColor = R.color.white()
-//        tabBar.tintColor = .systemBlue
-//        tabBar.unselectedItemTintColor = .gray
-//        tabBar.barTintColor = .clear
-//        tabBar.shadowImage = UIImage()
-//        tabBar.backgroundImage = UIImage()
+        //        tabBar.tintColor = .systemBlue
+        //        tabBar.unselectedItemTintColor = .gray
+        //        tabBar.barTintColor = .clear
+        //        tabBar.shadowImage = UIImage()
+        //        tabBar.backgroundImage = UIImage()
     }
-
+    
     func bindViewModel() {
         let input = RootTabBarViewModel.Input(viewDidAppear: rx.viewDidAppear.mapTo(()))
-        let out = viewModel.transform(input: input)
-        out.tabBarItems.drive(onNext: { [weak self] (items) in
+        let output = viewModel.transform(input: input)
+        output.tabBarItems.drive(onNext: { [weak self] (items) in
             guard let self = self else { return }
             let controllers = items.map {
                 $0.viewController(for: self.viewModel.viewModel(for: $0))

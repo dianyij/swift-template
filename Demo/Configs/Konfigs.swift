@@ -9,24 +9,18 @@
 import UIKit
 
 struct Konfigs {
-    static let baseURL: String = Bundle.main["BASE_URL"]
-    static let enableNetworkingLogging: Bool = Bundle.main["ENABLE_NETWORK_LOGGING"] == "YES"
-    
+
     struct App {
-        static let githubUrl = "https://github.com/khoren93/SwiftHub"
-        static let githubScope = "user+repo+notifications+read:org"
         static let bundleIdentifier = "com.public.SwiftHub"
+        static let baseURL: String = Bundle.main["BASE_URL"]
     }
     
     struct Network {
+        static let baseURL: String = Bundle.main["BASE_URL"]
+        static let enableNetworkingLogging: Bool = Bundle.main["ENABLE_NETWORK_LOGGING"] == "YES"
         static let useStaging = false  // set true for tests and generating screenshots with fastlane
         static let loggingEnabled = false
-        static let githubBaseUrl = "https://api.github.com"
-        static let trendingGithubBaseUrl = "https://github-trending-api.now.sh"
-        static let codetabsBaseUrl = "https://api.codetabs.com/v1"
-        static let githistoryBaseUrl = "https://github.githistory.xyz"
-        static let starHistoryBaseUrl = "https://star-history.t9t.io"
-        static let profileSummaryBaseUrl = "https://profile-summary-for-github.com"
+        static let headerContentTypeJSON = ["Content-Type": "application/json"]
     }
     
     struct BaseDimensions {

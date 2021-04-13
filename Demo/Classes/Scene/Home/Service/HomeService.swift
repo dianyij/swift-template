@@ -9,26 +9,8 @@
 import Foundation
 import RxSwift
 
-struct Home {
-    let name: String
+class HomeService: NetworkService {
+    func hello(name: String, completion: @escaping (Result<HomeResponse, NetworkError>) -> Void) {
+        provider.request(MultiTarget(HomeApi.hello(param: name)), type: HomeResponse.self, completion: completion)
+    }
 }
-
-protocol HomeServiceType {
-    var pages: Observable<[Home]?> { get }
-
-    func getPages(_ api: HomeApi) -> Observable<String>
-}
-
-// final class HomeService: HomeServiceType {
-//    var pages: Observable<[Home]?>
-//    var defaultPages: [Home] = [Home()]
-//
-//    func getPages(_ api: HomeApi) -> Observable<String> {
-//
-//    }
-//
-//    fileprivate let networking = Networking<HomeApi>(plugins: [CookiePlugin()])
-//
-//
-//
-// }

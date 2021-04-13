@@ -38,3 +38,15 @@
 "Login.Username" = "username";
 "Login.Password" = "password";
 "Login.LoginButton.Title" = "login";
+
+"whatsNew.Title" = "Title";
+"whatsNew.Title1" = "Title1";
+"whatsNew.Title2" = "Title2";
+"whatsNew.Title3" = "Title3";
+"whatsNew.Title4" = "Title4";
+
+"whatsNew.Subtitle" = "Subtitle";
+"whatsNew.Subtitle1" = "Subtitle1";
+"whatsNew.Subtitle2" = "Subtitle2";
+"whatsNew.Subtitle3" = "Subtitle3";
+"whatsNew.Subtitle4" = "Subtitle4";

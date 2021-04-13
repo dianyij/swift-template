@@ -10,8 +10,8 @@ import Foundation
 import Moya
 import RxSwift
 
-struct NetworkingConstant {
-    static let baseURL: URL = URL(string: Konfigs.baseURL)!
+struct NetworkKonfigs {
+    static let baseURL: URL = URL(string: Konfigs.Network.baseURL)!
     static let timeoutInterval: TimeInterval = 15
     static let contentType: String = "application/json"
 }
@@ -31,8 +31,8 @@ public class NetworkConfig {
         let requestClosure = { (endpoint: Endpoint, closure: MoyaProvider.RequestResultClosure) in
             do {
                 var urlRequest = try endpoint.urlRequest()
-                urlRequest.addValue(NetworkingConstant.contentType, forHTTPHeaderField: "Content-Type")
-                urlRequest.timeoutInterval = NetworkingConstant.timeoutInterval
+                urlRequest.addValue(NetworkKonfigs.contentType, forHTTPHeaderField: "Content-Type")
+                urlRequest.timeoutInterval = NetworkKonfigs.timeoutInterval
                 closure(.success(urlRequest))
             } catch MoyaError.requestMapping(let url) {
                 closure(.failure(MoyaError.requestMapping(url)))
