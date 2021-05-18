@@ -9,21 +9,20 @@
 import UIKit
 
 struct Konfigs {
-
-    struct App {
+    enum App {
         static let baseURL: String = Bundle.main["BASE_URL"]
         static let bundleIdentifier = "com.public.DEMO"
     }
-    
-    struct Network {
+
+    enum Network {
         static let baseURL: String = Bundle.main["BASE_URL"]
         static let enableNetworkingLogging: Bool = Bundle.main["ENABLE_NETWORK_LOGGING"] == "YES"
-        static let useStaging = false  // set true for tests and generating screenshots with fastlane
+        static let useStaging = false // set true for tests and generating screenshots with fastlane
         static let loggingEnabled = false
         static let headerContentTypeJSON = ["Content-Type": "application/json"]
     }
-    
-    struct BaseDimensions {
+
+    enum BaseDimensions {
         static let inset: CGFloat = 8
         static let tabBarHeight: CGFloat = 58
         static let toolBarHeight: CGFloat = 66
@@ -35,13 +34,13 @@ struct Konfigs {
         static let tableRowHeight: CGFloat = 36
         static let segmentedControlHeight: CGFloat = 40
     }
-    
-    struct Path {
+
+    enum Path {
         static let Documents = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         static let Tmp = NSTemporaryDirectory()
     }
-    
-    struct UserDefaultsKeys {
+
+    enum UserDefaultsKeys {
         static let bannersEnabled = "BannersEnabled"
     }
 }

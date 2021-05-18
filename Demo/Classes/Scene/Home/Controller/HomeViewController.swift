@@ -6,15 +6,14 @@
 //  Copyright © 2020 ORG. All rights reserved.
 //
 
-import UIKit
-import RxSwift
-import RxCocoa
 import DZNEmptyDataSet
 import KakaJSON
 import NSObject_Rx
+import RxCocoa
+import RxSwift
+import UIKit
 
 class HomeViewController: ViewController {
-
     var viewModel: HomeViewModel
 
     init(viewModel: HomeViewModel) {
@@ -22,7 +21,8 @@ class HomeViewController: ViewController {
         super.init(nibName: nil, bundle: nil)
     }
 
-    required init?(coder: NSCoder) {
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -36,5 +36,4 @@ class HomeViewController: ViewController {
             print(ges.view?.width ?? 0)
         }.disposed(by: rx.disposeBag)
     }
-
 }

@@ -9,13 +9,13 @@
 import Foundation
 /**
  setTimeout()
- 
+
  Shorthand method for create a delayed block to be execute on started Thread.
- 
+
  This method returns ``Timer`` instance, so that user may execute the block
  within immediately or keep the reference for further cancelation by calling
  ``Timer.invalidate()``
- 
+
  Example:
     let timer = setTimeout(0.3) {
         // do something
@@ -28,14 +28,14 @@ func setTimeout(_ delay: TimeInterval, block: @escaping () -> Void) -> Timer {
 
 /**
  setInternval()
- 
+
  Similar to setTimeout() this method will return ``Timer`` instance however, this
  method will execute repeatedly.
- 
+
  Warning using this method with caution, it is recommended that the block to utilise
  this method should call [unowned self] or [weak self] to announce OS that it should not
  hold strong reference to this block.
- 
+
  In addition, ``Timer`` returned should kept as member variable, and call invalidated()
  when the block no longer required. such as deinit, or viewDidDisappear()
  */
@@ -46,18 +46,19 @@ func setInterval(_ interval: TimeInterval, block: @escaping () -> Void) -> Timer
 func associatedObject<ValueType: AnyObject>(
     base: AnyObject,
     key: UnsafePointer<UInt8>,
-    initialiser: () -> ValueType)
-    -> ValueType {
-        if let associated = objc_getAssociatedObject(base, key)
-            as? ValueType { return associated }
-        let associated = initialiser()
-        objc_setAssociatedObject(base, key, associated, .OBJC_ASSOCIATION_RETAIN)
-        return associated
+    initialiser: () -> ValueType
+) -> ValueType {
+    if let associated = objc_getAssociatedObject(base, key)
+        as? ValueType { return associated }
+    let associated = initialiser()
+    objc_setAssociatedObject(base, key, associated, .OBJC_ASSOCIATION_RETAIN)
+    return associated
 }
 
 func associateObject<ValueType: AnyObject>(
     base: AnyObject,
     key: UnsafePointer<UInt8>,
-    value: ValueType) {
+    value: ValueType
+) {
     objc_setAssociatedObject(base, key, value, .OBJC_ASSOCIATION_RETAIN)
 }

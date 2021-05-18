@@ -47,25 +47,25 @@ extension HomeApi: TargetType {
     var headers: [String: String]? {
         return Konfigs.Network.headerContentTypeJSON
     }
-    
+
     var parameters: [String: Any]? {
         var params: [String: Any] = [:]
-        
+
         switch self {
-        case .hello(let param):
+        case let .hello(param):
             params["param"] = param
         }
         return params
     }
-    
+
     var jsonEncoding: JSONEncoding {
         return JSONEncoding.default
     }
-    
+
     var parameterEncoding: ParameterEncoding {
         return URLEncoding.default
     }
-    
+
     var sampleData: Data {
         var dataUrl: URL?
         switch self {

@@ -13,9 +13,9 @@ public typealias MultiTarget = Moya.MultiTarget
 
 protocol NetworkingType {
     associatedtype Target: TargetType
-    
+
     var provider: OnlineProvider { get }
-    
+
     static func defaultNetworking() -> Self
     static func stubbingNetworking() -> Self
 }
@@ -25,7 +25,7 @@ protocol NetworkingType {
 final class OnlineProvider {
     fileprivate let online: Bool
     fileprivate let provider: MoyaProvider<MultiTarget>
-    
+
     init(endpointClosure: @escaping MoyaProvider<MultiTarget>.EndpointClosure = MoyaProvider<MultiTarget>.defaultEndpointMapping,
          requestClosure: @escaping MoyaProvider<MultiTarget>.RequestClosure = MoyaProvider<MultiTarget>.defaultRequestMapping,
          stubClosure: @escaping MoyaProvider<MultiTarget>.StubClosure = MoyaProvider<MultiTarget>.neverStub,
@@ -34,19 +34,19 @@ final class OnlineProvider {
          trackInflights: Bool = false,
          online: Bool = true) {
         self.online = online
-        self.provider = MoyaProvider(endpointClosure: endpointClosure, requestClosure: requestClosure, stubClosure: stubClosure, session: session, plugins: plugins, trackInflights: trackInflights)
+        provider = MoyaProvider(endpointClosure: endpointClosure, requestClosure: requestClosure, stubClosure: stubClosure, session: session, plugins: plugins, trackInflights: trackInflights)
     }
-    
+
     /// Request api function  from the given components.
     ///
     /// - Parameters:
     ///     - target: Target API
     ///     - type:  type for encode
     ///     - completion: return value from server
-    public func request<T: Codable>(_ target: MultiTarget, type: T.Type, completion: @escaping (Result<T, NetworkError>) -> Void) {
-        provider.request(target) { (result) in
+    public func request<T: Codable>(_ target: MultiTarget, type _: T.Type, completion: @escaping (Result<T, NetworkError>) -> Void) {
+        provider.request(target) { result in
             switch result {
-            case .success(let response):
+            case let .success(response):
                 NSLog("Response = \(response)")
                 // When call api success
                 if response.statusCode == 200 {
@@ -65,21 +65,21 @@ final class OnlineProvider {
                         completion(.failure(NetworkError.requestError(title: target.path, message: error.localizedDescription)))
                     }
                 }
-            case .failure(let error):
+            case let .failure(error):
                 NSLog("error = \(error)")
                 let error = NSError(domain: target.path, code: error.errorCode, userInfo: nil)
                 completion(.failure(NetworkError.requestError(title: target.path, message: error.localizedDescription)))
             }
         }
     }
-    
+
     /// Request api function  from the given components.
     ///
     /// - Parameters:
     ///     - target: Target API
     ///     - completion: return value from server
     public func request(_ target: MultiTarget, completion: @escaping (Result<[String: Any], NetworkError>) -> Void) {
-        provider.request(target) { (result) in
+        provider.request(target) { result in
             switch result {
             case let .success(response):
                 if response.statusCode == 200 {
@@ -89,7 +89,7 @@ final class OnlineProvider {
                         }
                         return
                     }
-                    
+
                     DispatchQueue.main.async {
                         completion(.success(dictionary))
                     }
@@ -111,62 +111,62 @@ final class OnlineProvider {
 /// The network layer for call API. we can use test with 'stubbingNetworking' or real API call with 'defaultNetworking'
 public struct NetworkProvider: NetworkingType {
     typealias Target = MultiTarget
-    
+
     let provider: OnlineProvider
-    
+
     /// Default network  call
-    static public func defaultNetworking() -> Self {
+    public static func defaultNetworking() -> Self {
         return NetworkProvider(provider: newProvider(plugins))
     }
-    
+
     /// testing network call
-    static public func stubbingNetworking() -> Self {
+    public static func stubbingNetworking() -> Self {
         return NetworkProvider(provider: OnlineProvider(endpointClosure: endpointsClosure(), requestClosure: NetworkProvider.endpointResolver(), stubClosure: MoyaProvider.immediatelyStub, online: true))
     }
-    
+
     /// actual request api function
     /// - Parameters:
     /// - T: Target API
     /// - type: type for encode
     /// - completion: return value from server
-    public func request<T: Codable>(_ target: MultiTarget, type: T.Type, completion: @escaping (Result<T, NetworkError>) -> Void) {
-        let actualRequest: () = self.provider.request(target, type: T.self, completion: completion)
+    public func request<T: Codable>(_ target: MultiTarget, type _: T.Type, completion: @escaping (Result<T, NetworkError>) -> Void) {
+        let actualRequest: () = provider.request(target, type: T.self, completion: completion)
         return actualRequest
     }
-    
+
     /// actual request api function
     /// - Parameters:
     /// - T: Target API
     /// - completion: return value from server
     public func request(_ target: MultiTarget, completion: @escaping (Result<[String: Any], NetworkError>) -> Void) {
-        let actualRequest: () = self.provider.request(target, completion: completion)
+        let actualRequest: () = provider.request(target, completion: completion)
         return actualRequest
     }
 }
 
 extension NetworkingType {
-    static func endpointsClosure<T>(_ xAccessToken: String? = nil) -> (T) -> Endpoint where T: TargetType {
+    static func endpointsClosure<T>(_: String? = nil) -> (T) -> Endpoint where T: TargetType {
         return { target in
             let endpoint = MoyaProvider.defaultEndpointMapping(for: target)
             // Sign all non-XApp, non-XAuth token requests
             return endpoint
         }
     }
-    
+
     static func APIKeysBasedStubBehaviour<T>(_: T) -> Moya.StubBehavior {
         return .never
     }
-    
+
     static var plugins: [PluginType] {
         var plugins: [PluginType] = []
-        if  Konfigs.Network.enableNetworkingLogging == true {
+        if Konfigs.Network.enableNetworkingLogging == true {
             plugins.append(NetworkLoggerPlugin())
         }
         return plugins
     }
-    
+
     static func endpointResolver() -> MoyaProvider<Target>.RequestClosure {
-        return { (endpoint, closure) in
+        return { endpoint, closure in
             do {
                 var request = try endpoint.urlRequest() // endpoint.urlRequest
                 request.httpShouldHandleCookies = false

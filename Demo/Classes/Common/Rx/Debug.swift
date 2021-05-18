@@ -7,11 +7,11 @@
 //
 
 import Foundation
-import RxSwift
 import RxCocoa
+import RxSwift
 
 func xprint<T: CustomStringConvertible>(_ label: String = "-", _ event: Event<T>) {
-#if DEBUG
-    print(label, (event.element ?? event.error) ?? event)
-#endif
+    #if DEBUG
+        print(label, (event.element ?? event.error) ?? event)
+    #endif
 }

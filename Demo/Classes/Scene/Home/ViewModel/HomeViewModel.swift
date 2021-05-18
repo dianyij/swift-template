@@ -6,14 +6,13 @@
 //  Copyright © 2020 ORG. All rights reserved.
 //
 
-import UIKit
-import RxCocoa
-import RxSwift
-import RxDataSources
 import NSObject_Rx
+import RxCocoa
+import RxDataSources
+import RxSwift
+import UIKit
 
 class HomeViewModel: ViewModel {
-
     let service: HomeService!
 
     var needReloadTableView: (() -> Void)?
@@ -22,24 +21,24 @@ class HomeViewModel: ViewModel {
     private var items: [HomeItem] = []
 
     override init() {
-        self.service = HomeService()
+        service = HomeService()
     }
 
     /// Request repositories
     func requestRepositories() {
-        self.service.hello(name: "a") { [weak self] result in
+        service.hello(name: "a") { [weak self] result in
             guard let self = self else { return }
             switch result {
-            case .success(let response):
+            case let .success(response):
                 self.items = response.items ?? []
                 self.needReloadTableView?()
-            case .failure(let error):
+            case let .failure(error):
                 self.needShowError?(error)
             }
         }
     }
 
-    func numberOfRowsInSection(section: Int) -> Int {
+    func numberOfRowsInSection(section _: Int) -> Int {
         return items.count
     }
 

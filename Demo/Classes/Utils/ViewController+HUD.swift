@@ -9,7 +9,7 @@
 import Foundation
 import MBProgressHUD
 
-internal struct HUDAssociatedKeys {
+internal enum HUDAssociatedKeys {
     static var Loading = "HUDAssociatedKeys.Loading"
 }
 
@@ -29,7 +29,7 @@ extension UIViewController {
 extension UIViewController: HUDDisplayable {
     public func showLoading(title: String? = nil, subtitle: String? = nil) {
         let hud: MBProgressHUD
-        
+
         if let loadingHUD = loadingHUD {
             hud = loadingHUD
             hud.label.text = title
@@ -46,11 +46,11 @@ extension UIViewController: HUDDisplayable {
             loadingHUD = hud
         }
     }
-    
+
     public func hideLoading() {
         loadingHUD?.hide(animated: true)
     }
-    
+
     public func showSuccess(title: String? = nil, subtitle: String? = nil, duration: TimeInterval = 1.5) {
         let hud = MBProgressHUD.showAdded(to: view, animated: true)
         hud.label.numberOfLines = 0
@@ -62,7 +62,7 @@ extension UIViewController: HUDDisplayable {
         hud.animationType = .fade
         hud.hide(animated: true, afterDelay: duration)
     }
-    
+
     public func showError(title: String? = nil, subtitle: String? = nil, duration: TimeInterval = 1.5) {
         let hud = MBProgressHUD.showAdded(to: view, animated: true)
         hud.label.numberOfLines = 0
@@ -74,7 +74,7 @@ extension UIViewController: HUDDisplayable {
         hud.animationType = .fade
         hud.hide(animated: true, afterDelay: duration)
     }
-    
+
     public func showInfo(title: String, subtitle: String? = nil, duration: TimeInterval = 1.5) {
         let hud = MBProgressHUD.showAdded(to: view, animated: true)
         hud.label.numberOfLines = 0

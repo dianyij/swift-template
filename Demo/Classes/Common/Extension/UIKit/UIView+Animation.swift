@@ -9,6 +9,7 @@
 import UIKit
 
 // MARK: - Blinkable
+
 protocol Blinkable {
     func blink()
 }
@@ -19,7 +20,7 @@ extension Blinkable where Self: UIView {
         let duration = 0.5
         UIView.animate(withDuration: duration, animations: {
             self.alpha = 0
-        }, completion: { (_) in
+        }, completion: { _ in
             UIView.animate(withDuration: duration) {
                 self.alpha = 1
             }
@@ -28,6 +29,7 @@ extension Blinkable where Self: UIView {
 }
 
 // MARK: - Scalable
+
 protocol Scalable {
     func scale()
 }
@@ -42,11 +44,13 @@ extension Scalable where Self: UIView {
             options: [.repeat, .autoreverse],
             animations: {
                 self.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
-            })
+            }
+        )
     }
 }
 
 // MARK: - CornersRoundable
+
 protocol CornersRoundable {
     func roundCorners()
 }
@@ -58,10 +62,9 @@ extension CornersRoundable where Self: UIView {
     }
 }
 
-extension UIView: Scalable, Blinkable, CornersRoundable { }
+extension UIView: Scalable, Blinkable, CornersRoundable {}
 
 extension UIView {
-
     enum ShakeDirection {
         case horizontal
         case vertical
@@ -96,5 +99,4 @@ extension UIView {
             self.alpha = 0
         }, completion: completion)
     }
-
 }

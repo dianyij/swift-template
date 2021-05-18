@@ -9,7 +9,6 @@
 import UIKit
 
 class PlainTableView: UITableView {
-
     init() {
         super.init(frame: .zero, style: .plain)
     }
@@ -18,7 +17,8 @@ class PlainTableView: UITableView {
         super.init(frame: frame, style: style)
     }
 
-    required init?(coder: NSCoder) {
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -33,5 +33,4 @@ class PlainTableView: UITableView {
         tableFooterView = UIView()
         tableFooterView = UIView()
     }
-
 }

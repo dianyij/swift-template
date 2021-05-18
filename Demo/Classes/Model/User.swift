@@ -20,7 +20,7 @@ struct User: Codable {
 extension User {
     static func currentUser() -> User? {
         if let jsonData = try? Keychain().getData(userkey),
-            let user = try? JSONDecoder().decode(User.self, from: jsonData) {
+           let user = try? JSONDecoder().decode(User.self, from: jsonData) {
             return user
         }
         return nil
@@ -42,7 +42,6 @@ extension User {
     func isMe() -> Bool {
         return self == User.currentUser()
     }
-
 }
 
 extension User: Equatable {

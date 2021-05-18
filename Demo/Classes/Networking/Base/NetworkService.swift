@@ -10,7 +10,7 @@ import Foundation
 
 class NetworkService {
     var provider: NetworkProvider!
-    
+
     public init(isTest: Bool = false) {
         provider = isTest ? NetworkProvider.stubbingNetworking() : NetworkProvider.defaultNetworking()
     }

@@ -9,7 +9,6 @@
 import UIKit
 
 extension UIView {
-
     var origin: CGPoint {
         get { return frame.origin }
         set {
@@ -17,6 +16,7 @@ extension UIView {
             y = newValue.y
         }
     }
+
     var x: CGFloat {
         get { return frame.origin.x }
         set { frame.origin.x = newValue }
@@ -48,11 +48,9 @@ extension UIView {
             frame.size.height = newValue
         }
     }
-
 }
 
 extension UIView {
-
     func addSubviews(_ subviews: [UIView]) {
         subviews.forEach { addSubview($0) }
     }
@@ -67,12 +65,12 @@ extension UIView {
 }
 
 extension UIView {
-
     func roundCorners(radius: CGFloat, corners: UIRectCorner = .allCorners) {
         let maskPath = UIBezierPath(
             roundedRect: bounds,
             byRoundingCorners: corners,
-            cornerRadii: CGSize(width: radius, height: radius))
+            cornerRadii: CGSize(width: radius, height: radius)
+        )
 
         let mask = layer.mask as? CAShapeLayer ?? CAShapeLayer()
         mask.path = maskPath.cgPath
@@ -161,5 +159,4 @@ extension UIView {
             layer.shadowRadius = newValue
         }
     }
-
 }

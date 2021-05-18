@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 extension String {
-
     init(_ value: Float, precision: Int) {
         let nFormatter = NumberFormatter()
         nFormatter.numberStyle = .decimal
@@ -24,13 +23,11 @@ extension String {
         nFormatter.maximumFractionDigits = precision
         self = nFormatter.string(from: NSNumber(value: value))!
     }
-
 }
 
-extension String {
-
+public extension String {
     /// Init string with a base64 encoded string
-    init ? (base64: String) {
+    internal init ? (base64: String) {
         let pad = String(repeating: "=", count: base64.length % 4)
         let base64Padded = base64 + pad
         if let decodedData = Data(base64Encoded: base64Padded, options: NSData.Base64DecodingOptions(rawValue: 0)), let decodedString = NSString(data: decodedData, encoding: String.Encoding.utf8.rawValue) {
@@ -41,241 +38,231 @@ extension String {
     }
 
     /// base64 encoded of string
-    var base64: String {
+    internal var base64: String {
         let plainData = (self as NSString).data(using: String.Encoding.utf8.rawValue)
         let base64String = plainData!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0))
         return base64String
     }
 
     /// Cut string from integerIndex to the end
-    public subscript(integerIndex: Int) -> Character {
+    subscript(integerIndex: Int) -> Character {
         let index = self.index(startIndex, offsetBy: integerIndex)
         return self[index]
     }
 
     /// Cut string from range
-    public subscript(integerRange: Range<Int>) -> String {
-        let start = self.index(startIndex, offsetBy: integerRange.lowerBound)
-        let end = self.index(startIndex, offsetBy: integerRange.upperBound)
-        return String(self[start..<end])
+    subscript(integerRange: Range<Int>) -> String {
+        let start = index(startIndex, offsetBy: integerRange.lowerBound)
+        let end = index(startIndex, offsetBy: integerRange.upperBound)
+        return String(self[start ..< end])
     }
 
     /// Cut string from closedrange
-    public subscript(integerClosedRange: ClosedRange<Int>) -> String {
-        return self[integerClosedRange.lowerBound..<(integerClosedRange.upperBound + 1)]
+    subscript(integerClosedRange: ClosedRange<Int>) -> String {
+        return self[integerClosedRange.lowerBound ..< (integerClosedRange.upperBound + 1)]
     }
-
 }
 
-extension String {
-
+public extension String {
     /// Character count
-    public var length: Int {
-        return self.count
+    var length: Int {
+        return count
     }
 
     /// Counts number of instances of the input inside String
-    public func count(_ substring: String) -> Int {
+    func count(_ substring: String) -> Int {
         return components(separatedBy: substring).count - 1
     }
-
 }
 
-extension String {
-
+public extension String {
     /// Trims white space and new line characters
-    public mutating func trim() {
-        self = self.trimmed()
+    mutating func trim() {
+        self = trimmed()
     }
 
     /// Trims white space and new line characters, returns a new string
-    public func trimmed() -> String {
-        return self.trimmingCharacters(in: .whitespacesAndNewlines)
+    func trimmed() -> String {
+        return trimmingCharacters(in: .whitespacesAndNewlines)
     }
 
     /// Capitalizes first character of String
-    public mutating func capitalizeFirst() {
-        guard !self.isEmpty else { return }
-        self.replaceSubrange(startIndex...startIndex, with: String(self[startIndex]).capitalized)
+    mutating func capitalizeFirst() {
+        guard !isEmpty else { return }
+        replaceSubrange(startIndex ... startIndex, with: String(self[startIndex]).capitalized)
     }
 
     /// Capitalizes first character of String, returns a new string
-    public func capitalizedFirst() -> String {
-        guard !self.isEmpty else { return self }
+    func capitalizedFirst() -> String {
+        guard !isEmpty else { return self }
         var result = self
 
-        result.replaceSubrange(startIndex...startIndex, with: String(self[startIndex]).capitalized)
+        result.replaceSubrange(startIndex ... startIndex, with: String(self[startIndex]).capitalized)
         return result
     }
 
     /// Uppercases first 'count' characters of String
-    public mutating func uppercasePrefix(_ count: Int) {
-        guard !self.isEmpty && count > 0 else { return }
-        self.replaceSubrange(startIndex..<self.index(startIndex, offsetBy: min(count, length)), with: String(self[startIndex..<self.index(startIndex, offsetBy: min(count, length))]).uppercased())
+    mutating func uppercasePrefix(_ count: Int) {
+        guard !isEmpty, count > 0 else { return }
+        replaceSubrange(startIndex ..< index(startIndex, offsetBy: min(count, length)), with: String(self[startIndex ..< index(startIndex, offsetBy: min(count, length))]).uppercased())
     }
 
     /// Uppercases first 'count' characters of String, returns a new string
-    public func uppercasedPrefix(_ count: Int) -> String {
-        guard !self.isEmpty && count > 0 else { return self }
+    func uppercasedPrefix(_ count: Int) -> String {
+        guard !isEmpty, count > 0 else { return self }
         var result = self
-        result.replaceSubrange(startIndex..<self.index(startIndex, offsetBy: min(count, length)), with: String(self[startIndex..<self.index(startIndex, offsetBy: min(count, length))]).uppercased())
+        result.replaceSubrange(startIndex ..< index(startIndex, offsetBy: min(count, length)), with: String(self[startIndex ..< index(startIndex, offsetBy: min(count, length))]).uppercased())
         return result
     }
 
     /// Uppercases last 'count' characters of String
-    public mutating func uppercaseSuffix(_ count: Int) {
-        guard !self.isEmpty && count > 0 else { return }
-        self.replaceSubrange(self.index(endIndex, offsetBy: -min(count, length))..<endIndex, with: String(self[self.index(endIndex, offsetBy: -min(count, length))..<endIndex]).uppercased())
+    mutating func uppercaseSuffix(_ count: Int) {
+        guard !isEmpty, count > 0 else { return }
+        replaceSubrange(index(endIndex, offsetBy: -min(count, length)) ..< endIndex, with: String(self[index(endIndex, offsetBy: -min(count, length)) ..< endIndex]).uppercased())
     }
 
     /// Uppercases last 'count' characters of String, returns a new string
-    public func uppercasedSuffix(_ count: Int) -> String {
-        guard !self.isEmpty && count > 0 else { return self }
+    func uppercasedSuffix(_ count: Int) -> String {
+        guard !isEmpty, count > 0 else { return self }
         var result = self
-        result.replaceSubrange(self.index(endIndex, offsetBy: -min(count, length))..<endIndex, with: String(self[self.index(endIndex, offsetBy: -min(count, length))..<endIndex]).uppercased())
+        result.replaceSubrange(index(endIndex, offsetBy: -min(count, length)) ..< endIndex, with: String(self[index(endIndex, offsetBy: -min(count, length)) ..< endIndex]).uppercased())
         return result
     }
 
     /// Uppercases string in range 'range' (from range.startIndex to range.endIndex)
-    public mutating func uppercase(range: CountableRange<Int>) {
+    mutating func uppercase(range: CountableRange<Int>) {
         let from = max(range.lowerBound, 0), to = min(range.upperBound, length)
-        guard !self.isEmpty && (0..<length).contains(from) else { return }
-        self.replaceSubrange(self.index(startIndex, offsetBy: from)..<self.index(startIndex, offsetBy: to), with: String(self[self.index(startIndex, offsetBy: from)..<self.index(startIndex, offsetBy: to)]).uppercased())
+        guard !isEmpty, (0 ..< length).contains(from) else { return }
+        replaceSubrange(index(startIndex, offsetBy: from) ..< index(startIndex, offsetBy: to), with: String(self[index(startIndex, offsetBy: from) ..< index(startIndex, offsetBy: to)]).uppercased())
     }
 
     /// Uppercases string in range 'range' (from range.startIndex to range.endIndex), returns new string
-    public func uppercased(range: CountableRange<Int>) -> String {
+    func uppercased(range: CountableRange<Int>) -> String {
         let from = max(range.lowerBound, 0), to = min(range.upperBound, length)
-        guard !self.isEmpty && (0..<length).contains(from) else { return self }
+        guard !isEmpty, (0 ..< length).contains(from) else { return self }
         var result = self
-        result.replaceSubrange(self.index(startIndex, offsetBy: from)..<self.index(startIndex, offsetBy: to), with: String(self[self.index(startIndex, offsetBy: from)..<self.index(startIndex, offsetBy: to)]).uppercased())
+        result.replaceSubrange(index(startIndex, offsetBy: from) ..< index(startIndex, offsetBy: to), with: String(self[index(startIndex, offsetBy: from) ..< index(startIndex, offsetBy: to)]).uppercased())
         return result
     }
 
     /// Lowercases first character of String
-    public mutating func lowercaseFirst() {
-        guard !self.isEmpty else { return }
-        self.replaceSubrange(startIndex...startIndex, with: String(self[startIndex]).lowercased())
+    mutating func lowercaseFirst() {
+        guard !isEmpty else { return }
+        replaceSubrange(startIndex ... startIndex, with: String(self[startIndex]).lowercased())
     }
 
     /// Lowercases first character of String, returns a new string
-    public func lowercasedFirst() -> String {
-        guard !self.isEmpty else { return self }
+    func lowercasedFirst() -> String {
+        guard !isEmpty else { return self }
         var result = self
-        result.replaceSubrange(startIndex...startIndex, with: String(self[startIndex]).lowercased())
+        result.replaceSubrange(startIndex ... startIndex, with: String(self[startIndex]).lowercased())
         return result
     }
 
     /// Lowercases first 'count' characters of String
-    public mutating func lowercasePrefix(_ count: Int) {
-        guard !self.isEmpty && count > 0 else { return }
-        self.replaceSubrange(startIndex..<self.index(startIndex, offsetBy: min(count, length)), with: String(self[startIndex..<self.index(startIndex, offsetBy: min(count, length))]).lowercased())
+    mutating func lowercasePrefix(_ count: Int) {
+        guard !isEmpty, count > 0 else { return }
+        replaceSubrange(startIndex ..< index(startIndex, offsetBy: min(count, length)), with: String(self[startIndex ..< index(startIndex, offsetBy: min(count, length))]).lowercased())
     }
 
     /// Lowercases first 'count' characters of String, returns a new string
-    public func lowercasedPrefix(_ count: Int) -> String {
-        guard !self.isEmpty && count > 0 else { return self }
+    func lowercasedPrefix(_ count: Int) -> String {
+        guard !isEmpty, count > 0 else { return self }
         var result = self
-        result.replaceSubrange(startIndex..<self.index(startIndex, offsetBy: min(count, length)), with: String(self[startIndex..<self.index(startIndex, offsetBy: min(count, length))]).lowercased())
+        result.replaceSubrange(startIndex ..< index(startIndex, offsetBy: min(count, length)), with: String(self[startIndex ..< index(startIndex, offsetBy: min(count, length))]).lowercased())
         return result
     }
 
     /// Lowercases last 'count' characters of String
-    public mutating func lowercaseSuffix(_ count: Int) {
-        guard !self.isEmpty && count > 0 else { return }
-        self.replaceSubrange(self.index(endIndex, offsetBy: -min(count, length))..<endIndex, with: String(self[self.index(endIndex, offsetBy: -min(count, length))..<endIndex]).lowercased())
+    mutating func lowercaseSuffix(_ count: Int) {
+        guard !isEmpty, count > 0 else { return }
+        replaceSubrange(index(endIndex, offsetBy: -min(count, length)) ..< endIndex, with: String(self[index(endIndex, offsetBy: -min(count, length)) ..< endIndex]).lowercased())
     }
 
     /// Lowercases last 'count' characters of String, returns a new string
-    public func lowercasedSuffix(_ count: Int) -> String {
-        guard !self.isEmpty && count > 0 else { return self }
+    func lowercasedSuffix(_ count: Int) -> String {
+        guard !isEmpty, count > 0 else { return self }
         var result = self
-        result.replaceSubrange(self.index(endIndex, offsetBy: -min(count, length))..<endIndex, with: String(self[self.index(endIndex, offsetBy: -min(count, length))..<endIndex]).lowercased())
+        result.replaceSubrange(index(endIndex, offsetBy: -min(count, length)) ..< endIndex, with: String(self[index(endIndex, offsetBy: -min(count, length)) ..< endIndex]).lowercased())
         return result
     }
 
     /// Lowercases string in range 'range' (from range.startIndex to range.endIndex)
-    public mutating func lowercase(range: CountableRange<Int>) {
+    mutating func lowercase(range: CountableRange<Int>) {
         let from = max(range.lowerBound, 0), to = min(range.upperBound, length)
-        guard !self.isEmpty && (0..<length).contains(from) else { return }
-        self.replaceSubrange(self.index(startIndex, offsetBy: from)..<self.index(startIndex, offsetBy: to), with: String(self[self.index(startIndex, offsetBy: from)..<self.index(startIndex, offsetBy: to)]).lowercased())
+        guard !isEmpty, (0 ..< length).contains(from) else { return }
+        replaceSubrange(index(startIndex, offsetBy: from) ..< index(startIndex, offsetBy: to), with: String(self[index(startIndex, offsetBy: from) ..< index(startIndex, offsetBy: to)]).lowercased())
     }
 
     /// Lowercases string in range 'range' (from range.startIndex to range.endIndex), returns new string
-    public func lowercased(range: CountableRange<Int>) -> String {
+    func lowercased(range: CountableRange<Int>) -> String {
         let from = max(range.lowerBound, 0), to = min(range.upperBound, length)
-        guard !self.isEmpty && (0..<length).contains(from) else { return self }
+        guard !isEmpty, (0 ..< length).contains(from) else { return self }
         var result = self
-        result.replaceSubrange(self.index(startIndex, offsetBy: from)..<self.index(startIndex, offsetBy: to), with: String(self[self.index(startIndex, offsetBy: from)..<self.index(startIndex, offsetBy: to)]).lowercased())
+        result.replaceSubrange(index(startIndex, offsetBy: from) ..< index(startIndex, offsetBy: to), with: String(self[index(startIndex, offsetBy: from) ..< index(startIndex, offsetBy: to)]).lowercased())
         return result
     }
-
 }
 
-extension String {
-
+public extension String {
     /// Checks if string is empty or consists only of whitespace and newline characters
-    public var isBlank: Bool {
+    var isBlank: Bool {
         let trimmed = trimmingCharacters(in: .whitespacesAndNewlines)
         return trimmed.isEmpty
     }
 
     /// Checks if String contains Email
-    public var isEmail: Bool {
+    var isEmail: Bool {
         let dataDetector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
         let firstMatch = dataDetector?.firstMatch(in: self, options: NSRegularExpression.MatchingOptions.reportCompletion, range: NSRange(location: 0, length: length))
         return (firstMatch?.range.location != NSNotFound && firstMatch?.url?.scheme == "mailto")
     }
 
     /// Returns if String is a number
-    public func isNumber() -> Bool {
+    func isNumber() -> Bool {
         return NumberFormatter().number(from: self) != nil ? true : false
     }
 
     /// Checking if String contains input with comparing options
-    public func contains(_ find: String, compareOption: NSString.CompareOptions) -> Bool {
-        return self.range(of: find, options: compareOption) != nil
+    func contains(_ find: String, compareOption: NSString.CompareOptions) -> Bool {
+        return range(of: find, options: compareOption) != nil
     }
 
     /// Checks if String contains Emoji
-    public func includesEmoji() -> Bool {
-        for i in 0...length {
+    func includesEmoji() -> Bool {
+        for i in 0 ... length {
             let c: unichar = (self as NSString).character(at: i)
-            if (0xD800 <= c && c <= 0xDBFF) || (0xDC00 <= c && c <= 0xDFFF) {
+            if (c >= 0xD800 && c <= 0xDBFF) || (c >= 0xDC00 && c <= 0xDFFF) {
                 return true
             }
         }
         return false
     }
-
 }
 
-extension String {
-
+public extension String {
     /// split string using a spearator string, returns an array of string
-    public func split(_ separator: String) -> [String] {
-        return self.components(separatedBy: separator).filter {
+    func split(_ separator: String) -> [String] {
+        return components(separatedBy: separator).filter {
             !$0.trimmed().isEmpty
         }
     }
 
     /// split string with delimiters, returns an array of string
-    public func split(_ characters: CharacterSet) -> [String] {
-        return self.components(separatedBy: characters).filter {
+    func split(_ characters: CharacterSet) -> [String] {
+        return components(separatedBy: characters).filter {
             !$0.trimmed().isEmpty
         }
     }
-
 }
 
-extension String {
-
-    public func extractNumber() -> Int? {
-        return self.components(separatedBy: CharacterSet.decimalDigits.inverted).joined().toInt()
+public extension String {
+    func extractNumber() -> Int? {
+        return components(separatedBy: CharacterSet.decimalDigits.inverted).joined().toInt()
     }
 
     /// Converts String to Int
-    public func toInt() -> Int? {
+    func toInt() -> Int? {
         if let num = NumberFormatter().number(from: self) {
             return num.intValue
         } else {
@@ -284,7 +271,7 @@ extension String {
     }
 
     /// Converts String to Double
-    public func toDouble() -> Double? {
+    func toDouble() -> Double? {
         if let num = NumberFormatter().number(from: self) {
             return num.doubleValue
         } else {
@@ -293,7 +280,7 @@ extension String {
     }
 
     /// Converts String to Float
-    public func toFloat() -> Float? {
+    func toFloat() -> Float? {
         if let num = NumberFormatter().number(from: self) {
             return num.floatValue
         } else {
@@ -302,7 +289,7 @@ extension String {
     }
 
     /// Converts String to Bool
-    public func toBool() -> Bool? {
+    func toBool() -> Bool? {
         let trimmedString = trimmed().lowercased()
         if trimmedString == "true" || trimmedString == "false" {
             return (trimmedString as NSString).boolValue
@@ -311,15 +298,12 @@ extension String {
     }
 
     /// Converts String to NSString
-    public var toNSString: NSString { return self as NSString }
-
+    var toNSString: NSString { return self as NSString }
 }
 
-extension String {
-
-
+public extension String {
     /// Position of begining character of substing
-    public func positionOfSubstring(_ subString: String, caseInsensitive: Bool = false, fromEnd: Bool = false) -> Int {
+    func positionOfSubstring(_ subString: String, caseInsensitive: Bool = false, fromEnd: Bool = false) -> Int {
         if subString.isEmpty {
             return -1
         }
@@ -328,21 +312,21 @@ extension String {
             searchOption.insert(NSString.CompareOptions.caseInsensitive)
         }
         if let range = self.range(of: subString, options: searchOption), !range.isEmpty {
-            return self.distance(from: self.startIndex, to: range.lowerBound)
+            return distance(from: startIndex, to: range.lowerBound)
         }
         return -1
     }
 
     /// EZSE : Returns count of words in string
-    public var countofWords: Int {
+    var countofWords: Int {
         let regex = try? NSRegularExpression(pattern: "\\w+", options: NSRegularExpression.Options())
-        return regex?.numberOfMatches(in: self, options: NSRegularExpression.MatchingOptions(), range: NSRange(location: 0, length: self.length)) ?? 0
+        return regex?.numberOfMatches(in: self, options: NSRegularExpression.MatchingOptions(), range: NSRange(location: 0, length: length)) ?? 0
     }
 
     /// EZSE : Returns count of paragraphs in string
-    public var countofParagraphs: Int {
+    var countofParagraphs: Int {
         let regex = try? NSRegularExpression(pattern: "\\n", options: NSRegularExpression.Options())
-        let str = self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        let str = trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         return (regex?.numberOfMatches(in: str, options: NSRegularExpression.MatchingOptions(), range: NSRange(location: 0, length: str.length)) ?? -1) + 1
     }
 
@@ -350,21 +334,21 @@ extension String {
         let from16 = utf16.index(utf16.startIndex, offsetBy: nsRange.location)
         let to16 = utf16.index(from16, offsetBy: nsRange.length)
         if let from = String.Index(from16, within: self),
-            let to = String.Index(to16, within: self) {
+           let to = String.Index(to16, within: self) {
             return from ..< to
         }
         return nil
     }
 
     /// Find matches of regular expression in string
-    public func matchesForRegexInText(_ regex: String!) -> [String] {
+    func matchesForRegexInText(_ regex: String!) -> [String] {
         let regex = try? NSRegularExpression(pattern: regex, options: [])
-        let results = regex?.matches(in: self, options: [], range: NSRange(location: 0, length: self.length)) ?? []
+        let results = regex?.matches(in: self, options: [], range: NSRange(location: 0, length: length)) ?? []
         return results.map { String(self[self.rangeFromNSRange($0.range)!]) }
     }
 
     /// Extracts URLS from String
-    public var extractURLs: [URL] {
+    var extractURLs: [URL] {
         var urls: [URL] = []
         let detector: NSDataDetector?
         do {
@@ -390,8 +374,8 @@ extension String {
     }
 
     /// Returns the first index of the occurency of the character in String
-    public func getIndexOf(_ char: Character) -> Int? {
-        for (index, c) in self.enumerated() where c == char {
+    func getIndexOf(_ char: Character) -> Int? {
+        for (index, c) in enumerated() where c == char {
             return index
         }
         return nil
@@ -400,7 +384,7 @@ extension String {
     #if os(iOS)
 
         /// copy string to pasteboard
-        public func addToPasteboard() {
+        func addToPasteboard() {
             let pasteboard = UIPasteboard.general
             pasteboard.string = self
         }
@@ -409,7 +393,6 @@ extension String {
 }
 
 extension String {
-
     func htmlAttributedString(with fontName: String = "Futura", fontSize: Int = 15, colorHex: String = "ff0000") -> NSAttributedString? {
         do {
             let cssPrefix = "<style>* { font-family: \(fontName); color: #\(colorHex); font-size: \(fontSize); }</style>"
@@ -423,7 +406,7 @@ extension String {
 
     // URL encode a string (percent encoding special chars)
     public func urlEncoded() -> String {
-        return self.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+        return addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
     }
 
     // URL encode a string (percent encoding special chars) mutating version
@@ -440,15 +423,13 @@ extension String {
     mutating func urlDecode() {
         self = urlDecoded()
     }
-
 }
 
-extension String {
-
+public extension String {
     #if os(iOS)
 
         /// Returns hight of rendered string
-        public func height(_ width: CGFloat, font: UIFont, lineBreakMode: NSLineBreakMode?) -> CGFloat {
+        func height(_ width: CGFloat, font: UIFont, lineBreakMode: NSLineBreakMode?) -> CGFloat {
             var attrib: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: font]
             if lineBreakMode != nil {
                 let paragraphStyle = NSMutableParagraphStyle()
@@ -464,7 +445,7 @@ extension String {
     #if os(iOS)
 
         /// Returns underlined NSAttributedString
-        public func underline() -> NSAttributedString {
+        func underline() -> NSAttributedString {
             let underlineString = NSAttributedString(string: self, attributes: [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue])
             return underlineString
         }
@@ -474,7 +455,7 @@ extension String {
     #if os(iOS)
 
         /// Returns italic NSAttributedString
-        public func italic() -> NSAttributedString {
+        func italic() -> NSAttributedString {
             let italicString = NSMutableAttributedString(string: self, attributes: [NSAttributedString.Key.font: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
             return italicString
         }
@@ -484,13 +465,13 @@ extension String {
     #if os(iOS) || os(tvOS)
 
         /// Returns NSAttributedString
-        public func color(_ color: UIColor) -> NSAttributedString {
+        func color(_ color: UIColor) -> NSAttributedString {
             let colorString = NSMutableAttributedString(string: self, attributes: [NSAttributedString.Key.foregroundColor: color])
             return colorString
         }
 
         /// Returns NSAttributedString
-        public func colorSubString(_ subString: String, color: UIColor) -> NSMutableAttributedString {
+        func colorSubString(_ subString: String, color: UIColor) -> NSMutableAttributedString {
             var start = 0
             var ranges: [NSRange] = []
             while true {
@@ -510,12 +491,10 @@ extension String {
         }
 
     #endif
-
 }
 
-
 /// Pattern matching of strings via defined functions
-public func ~= <T> (pattern: ((T) -> Bool), value: T) -> Bool {
+public func ~= <T>(pattern: (T) -> Bool, value: T) -> Bool {
     return pattern(value)
 }
 

@@ -6,8 +6,8 @@
 //  Copyright © 2020 ORG. All rights reserved.
 //
 
-import Foundation
 import CocoaLumberjack
+import Foundation
 
 public func logDebug(_ message: @autoclosure () -> String) {
     DDLogDebug(message())

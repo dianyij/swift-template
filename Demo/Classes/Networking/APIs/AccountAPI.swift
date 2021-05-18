@@ -25,7 +25,7 @@ extension Account: TargetType {
         switch self {
         case .login:
             return "/api/auth/tokens/"
-        case .userInfo(let id):
+        case let .userInfo(id):
             return "/api/user/\(id)"
         case .hello:
             return "/Categories/0.json"
@@ -45,7 +45,7 @@ extension Account: TargetType {
 
     var task: Task {
         switch self {
-        case .login(let param):
+        case let .login(param):
             return .requestParameters(parameters: param, encoding: JSONEncoding.default)
         default:
             return .requestPlain

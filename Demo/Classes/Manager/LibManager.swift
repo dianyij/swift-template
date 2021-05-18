@@ -6,48 +6,47 @@
 //  Copyright © 2020 ORG. All rights reserved.
 //
 
-import UIKit
+import CocoaLumberjack
 import IQKeyboardManagerSwift
+import RxCocoa
+import RxSwift
 import SDWebImage
 import SnapKit
-import CocoaLumberjack
-import RxSwift
-import RxCocoa
+import UIKit
 #if DEBUG
     import FLEX
 #endif
-import NVActivityIndicatorView
-import NSObject_Rx
-import RxViewController
-import RxOptional
-import RxGesture
-import SwifterSwift
-import SwiftDate
 import Hero
+import NSObject_Rx
+import NVActivityIndicatorView
+import RxGesture
+import RxOptional
+import RxViewController
+import SwiftDate
+import SwifterSwift
 // import Firebase
 // import FirebaseCrashlytics
 
 class LibsManager: NSObject {
-
     static let shared = LibsManager()
 
     let bannersEnabled = BehaviorRelay(value: UserDefaults.standard.bool(forKey: Konfigs.UserDefaultsKeys.bannersEnabled))
 //    bannerEnabled = BehaviorRelay(value: LibsManager.shared.bannersEnabled.value)
 
-    private override init() {
+    override private init() {
         super.init()
 
         if UserDefaults.standard.object(forKey: Konfigs.UserDefaultsKeys.bannersEnabled) == nil {
             bannersEnabled.accept(true)
         }
 
-        bannersEnabled.skip(1).subscribe(onNext: { (enabled) in
+        bannersEnabled.skip(1).subscribe(onNext: { enabled in
             UserDefaults.standard.set(enabled, forKey: Konfigs.UserDefaultsKeys.bannersEnabled)
 //            analytics.set(.adsEnabled(value: enabled))
         }).disposed(by: rx.disposeBag)
     }
 
-    func setupLibs(with window: UIWindow? = nil) {
+    func setupLibs(with _: UIWindow? = nil) {
         let libsManager = LibsManager.shared
         libsManager.setupCocoaLumberjack()
         libsManager.setupAnalytics()
@@ -58,7 +57,7 @@ class LibsManager: NSObject {
 
     func setupCocoaLumberjack() {
         DDLog.add(DDOSLogger.sharedInstance)
-        let fileLogger: DDFileLogger = DDFileLogger() // File Logger
+        let fileLogger = DDFileLogger() // File Logger
         fileLogger.rollingFrequency = TimeInterval(60 * 60 * 24) // 24 hours
         fileLogger.logFileManager.maximumNumberOfLogFiles = 7
         DDLog.add(fileLogger)
@@ -87,7 +86,6 @@ class LibsManager: NSObject {
         SDWebImageDownloader.shared.config.downloadTimeout = 15
     }
 }
-
 
 extension LibsManager {
     func showFlex() {

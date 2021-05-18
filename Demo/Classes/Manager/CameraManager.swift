@@ -6,16 +6,14 @@
 //  Copyright © 2020 ORG. All rights reserved.
 //
 
+import AVFoundation
 import Foundation
 import UIKit
-import AVFoundation
-
 
 class CameraManager {
+    static let shared = CameraManager()
 
-    static let shared: CameraManager = CameraManager()
-
-    func checkPermission(for: AVMediaType = .video, completion: @escaping (Bool) -> Void) {
+    func checkPermission(for _: AVMediaType = .video, completion: @escaping (Bool) -> Void) {
         let authorizationStatus = AVCaptureDevice.authorizationStatus(for: .video)
 
         switch authorizationStatus {

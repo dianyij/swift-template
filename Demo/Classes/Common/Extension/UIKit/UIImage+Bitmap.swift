@@ -6,8 +6,8 @@
 //  Copyright © 2020 ORG. All rights reserved.
 //
 
-import Foundation
 import CoreGraphics
+import Foundation
 import UIKit
 
 protocol Kolor {
@@ -21,17 +21,17 @@ protocol Kolor {
 
 struct Kolor8: Kolor {
     var r, g, b: UInt8
-    var a: UInt8 = UInt8.max
+    var a = UInt8.max
 }
 
 struct Kolor16: Kolor {
     var r, g, b: UInt16
-    var a: UInt16 = UInt16.max
+    var a = UInt16.max
 }
 
 struct Kolor32: Kolor {
     var r, g, b: UInt32
-    var a: UInt32 = UInt32.max
+    var a = UInt32.max
 }
 
 struct Bitmap<T: Kolor> {
@@ -49,7 +49,7 @@ struct Bitmap<T: Kolor> {
         pixels = Array(repeating: color, count: width * height)
     }
 
-    init(width: Int, height: Int, colors: [T]) {
+    init(width: Int, height _: Int, colors: [T]) {
         self.width = width
         pixels = colors
     }

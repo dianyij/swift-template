@@ -6,12 +6,11 @@
 //  Copyright © 2020 ORG. All rights reserved.
 //
 
-import UIKit
-import RxSwift
 import RxCocoa
+import RxSwift
+import UIKit
 
 class LoginViewController: ViewController {
-
     var viewModel: LoginViewModel
 
     init(viewModel: LoginViewModel) {
@@ -19,7 +18,8 @@ class LoginViewController: ViewController {
         super.init(nibName: nil, bundle: nil)
     }
 
-    required init?(coder: NSCoder) {
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -89,8 +89,8 @@ class LoginViewController: ViewController {
         loginBtn.rx.tap
             .asObservable()
             .subscribe(onNext: { [weak self] () in
-            self?.view.endEditing(true)
-        }).disposed(by: rx.disposeBag)
+                self?.view.endEditing(true)
+            }).disposed(by: rx.disposeBag)
 
 //        let left = PublishSubject<String>()
 //        let center = PublishSubject<String>()
@@ -129,31 +129,30 @@ class LoginViewController: ViewController {
 //        })
 
         let seq = PublishSubject<Int>()
-        let a = seq.map { (i) -> Int in
+        let a = seq.map { i -> Int in
             print("MAP---\(i)")
             return i * 2
         }
-            .share(replay: 1, scope: .forever)
+        .share(replay: 1, scope: .forever)
 
-        _ = a.subscribe(onNext: { (num) in
+        _ = a.subscribe(onNext: { num in
             print("--1--\(num)")
         }, onError: nil, onCompleted: nil, onDisposed: nil)
 
         seq.onNext(1)
         seq.onNext(2)
 
-        _ = a.subscribe(onNext: { (num) in
+        _ = a.subscribe(onNext: { num in
             print("--2--\(num)")
         }, onError: nil, onCompleted: nil, onDisposed: nil)
 
         seq.onNext(3)
         seq.onNext(4)
 
-        _ = a.subscribe(onNext: { (num) in
+        _ = a.subscribe(onNext: { num in
             print("--3--\(num)")
         }, onError: nil, onCompleted: nil, onDisposed: nil)
 
         seq.onCompleted()
-
     }
 }

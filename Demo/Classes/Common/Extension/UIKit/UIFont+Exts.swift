@@ -10,6 +10,7 @@ import UIKit
 
 extension UIFont {
     // MARK: All Fonts
+
     static func allSystemFontsNames() -> [String] {
         var fontsNames = [String]()
         let fontFamilies = UIFont.familyNames
@@ -21,11 +22,12 @@ extension UIFont {
         }
         return fontsNames
     }
-    
+
     // MARK: Randomizing Fonts
+
     static func randomFont(ofSize size: CGFloat) -> UIFont {
         let allFontsNames = UIFont.allSystemFontsNames()
-        let randomFontIndex = Int.random(in: 0..<allFontsNames.count)
+        let randomFontIndex = Int.random(in: 0 ..< allFontsNames.count)
         let randomFontName = allFontsNames[randomFontIndex]
         return UIFont(name: randomFontName, size: size)!
     }

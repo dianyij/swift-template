@@ -6,9 +6,9 @@
 //  Copyright © 2020 ORG. All rights reserved.
 //
 
-import UIKit
 import RxCocoa
 import RxSwift
+import UIKit
 
 enum TabbarItem: CaseIterable {
     case home
@@ -24,18 +24,18 @@ extension TabbarItem {
         case .profile: return R.string.localization.tabBarProfileTitle()
         }
     }
-    
+
     var image: UIImage? {
         switch self {
         case .home: return R.image.tabbar_home()
         case .profile: return R.image.tabbar_profile()
         }
     }
-    
+
     var selectedImage: UIImage? {
         return nil
     }
-    
+
     private func getViewController(with viewModel: ViewModel) -> UIViewController {
         switch self {
         case .home:
@@ -46,7 +46,7 @@ extension TabbarItem {
             return UINavigationController(rootViewController: vc)
         }
     }
-    
+
     func viewController(for viewModel: ViewModel) -> UIViewController {
         let vc = getViewController(with: viewModel)
         let tabBarItem = UITabBarItem(title: title, image: image, selectedImage: selectedImage)
@@ -59,21 +59,21 @@ class RootTabBarViewModel: ViewModel, ViewModelType {
     struct Input {
         var viewDidAppear: Observable<Void>
     }
-    
+
     struct Output {
         var tabBarItems: Driver<[TabbarItem]>
     }
-    
+
     func transform(input: RootTabBarViewModel.Input) -> RootTabBarViewModel.Output {
         let items = input.viewDidAppear
             .map { _ in
-                return TabbarItem.allCases
+                TabbarItem.allCases
             }
             .asDriver(onErrorJustReturn: [])
-        
+
         return Output(tabBarItems: items)
     }
-    
+
     func viewModel(for tabBarItem: TabbarItem) -> ViewModel {
         switch tabBarItem {
         case .home:

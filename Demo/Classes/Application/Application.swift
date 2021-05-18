@@ -16,9 +16,9 @@ final class Application {
     let authManager: AuthManager
 
     init() {
-        self.authManager = AuthManager.shared
-        
-        _ = authManager.tokenChanged.subscribe(onNext: { [weak self] (token) in
+        authManager = AuthManager.shared
+
+        _ = authManager.tokenChanged.subscribe(onNext: { [weak self] token in
             if let window = self?.window, token == nil || token?.isValid == true {
                 self?.presentInitialScreen(in: window)
             }
@@ -34,7 +34,7 @@ final class Application {
         let loggedIn = authManager.hasToken
 
         var vc: UIViewController
-        
+
         if !loggedIn {
             let viewModel = RootTabBarViewModel()
             vc = RootTabBarViewController(viewModel: viewModel)

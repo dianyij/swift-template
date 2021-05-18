@@ -7,12 +7,12 @@
 //
 
 import Foundation
-import RxSwift
 import RxCocoa
+import RxSwift
 
-extension Reactive where Base: UIViewController {
-    public var showLoading: Binder<(String?, String?)> {
-        return Binder(base) { (target, data) in
+public extension Reactive where Base: UIViewController {
+    var showLoading: Binder<(String?, String?)> {
+        return Binder(base) { target, data in
             switch data {
             case let (title?, subtitle?):
                 target.showLoading(title: title, subtitle: subtitle)
@@ -25,21 +25,21 @@ extension Reactive where Base: UIViewController {
             }
         }
     }
-    
-    public var hideLoading: Binder<Void> {
-        return Binder(base) { (target, _) in
+
+    var hideLoading: Binder<Void> {
+        return Binder(base) { target, _ in
             target.hideLoading()
         }
     }
-    
-    public var loading: Binder<Bool> {
-        return Binder(base) { (target, show) in
+
+    var loading: Binder<Bool> {
+        return Binder(base) { target, show in
             show ? target.showLoading() : target.hideLoading()
         }
     }
-    
-    public var showSuccess: Binder<(String?, String?, TimeInterval?)> {
-        return Binder(base) { (target, data) in
+
+    var showSuccess: Binder<(String?, String?, TimeInterval?)> {
+        return Binder(base) { target, data in
             switch data {
             case let (title?, subtitle?, interval?):
                 target.showSuccess(title: title, subtitle: subtitle, duration: interval)
@@ -60,9 +60,9 @@ extension Reactive where Base: UIViewController {
             }
         }
     }
-    
-    public var showError: Binder<(String?, String?, TimeInterval?)> {
-        return Binder(base) { (target, data) in
+
+    var showError: Binder<(String?, String?, TimeInterval?)> {
+        return Binder(base) { target, data in
             switch data {
             case let (title?, subtitle?, interval?):
                 target.showError(title: title, subtitle: subtitle, duration: interval)
@@ -83,9 +83,9 @@ extension Reactive where Base: UIViewController {
             }
         }
     }
-    
-    public var showInfo: Binder<(String, String?, TimeInterval?)> {
-        return Binder(base) { (target, data) in
+
+    var showInfo: Binder<(String, String?, TimeInterval?)> {
+        return Binder(base) { target, data in
             switch data {
             case let (title, subtitle?, interval?):
                 target.showInfo(title: title, subtitle: subtitle, duration: interval)

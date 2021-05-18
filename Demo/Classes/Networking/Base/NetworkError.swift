@@ -11,21 +11,21 @@ import Foundation
 public enum NetworkError: Error {
     case parseResponseDataFalse(title: String)
     case requestError(title: String, message: String)
-    
+
     public var description: String {
         switch self {
         case .parseResponseDataFalse:
             return "Parse response data false"
-        case .requestError(_, let message):
+        case let .requestError(_, message):
             return message
         }
     }
-    
+
     public var title: String {
         switch self {
-        case .parseResponseDataFalse(let title):
+        case let .parseResponseDataFalse(title):
             return title
-        case .requestError(let title, _):
+        case let .requestError(title, _):
             return title
         }
     }

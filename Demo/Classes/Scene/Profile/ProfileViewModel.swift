@@ -8,6 +8,4 @@
 
 import Foundation
 
-class ProfileViewModel: ViewModel {
-    
-}
+class ProfileViewModel: ViewModel {}
