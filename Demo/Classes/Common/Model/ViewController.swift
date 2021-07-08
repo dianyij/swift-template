@@ -14,6 +14,8 @@ import RxSwift
 import UIKit
 
 class ViewController: UIViewController {
+    var didSetupConstraints: Bool = false
+
     let isLoading = BehaviorRelay(value: false)
 
     var automaticallyAdjustsLeftBarButtonItem = true

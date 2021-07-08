@@ -18,7 +18,7 @@ class HomeViewModel: ViewModel {
     var needReloadTableView: (() -> Void)?
     var needShowError: ((NetworkError) -> Void)?
 
-    private var items: [HomeItem] = []
+    private var items = [HomeItem]()
 
     override init() {
         service = HomeService()
@@ -30,6 +30,7 @@ class HomeViewModel: ViewModel {
             guard let self = self else { return }
             switch result {
             case let .success(response):
+                print(response)
                 self.items = response.items ?? []
                 self.needReloadTableView?()
             case let .failure(error):

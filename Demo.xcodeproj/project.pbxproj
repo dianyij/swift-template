@@ -47,6 +47,7 @@
 		DE0F282B257CDBC500D6E03F /* WhatsNewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0F282A257CDBC500D6E03F /* WhatsNewManager.swift */; };
 		DE394BEE26258693007B04CC /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE394BED26258693007B04CC /* HomeModel.swift */; };
 		DE4B71062586A89100AD7E79 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE4B71082586A89100AD7E79 /* Localization.strings */; };
+		DE540828265486330024841A /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE540827265486330024841A /* HomeCell.swift */; };
 		DE5BA00B256D0DBC00702A98 /* loadContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5BA00A256D0DBC00702A98 /* loadContent.swift */; };
 		DE5BA3F1256E480400702A98 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5BA3F0256E480400702A98 /* Debug.swift */; };
 		DE794D37256B3B9E005F0E2D /* RootTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE794D36256B3B9E005F0E2D /* RootTabBarViewController.swift */; };
@@ -150,6 +151,7 @@
 		DE394BED26258693007B04CC /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		DE4B71072586A89100AD7E79 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localization.strings; sourceTree = "<group>"; };
 		DE4B71132586A8DB00AD7E79 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		DE540827265486330024841A /* HomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		DE5BA00A256D0DBC00702A98 /* loadContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loadContent.swift; sourceTree = "<group>"; };
 		DE5BA3F0256E480400702A98 /* Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
 		DE794D36256B3B9E005F0E2D /* RootTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarViewController.swift; sourceTree = "<group>"; };
@@ -519,6 +521,7 @@
 			isa = PBXGroup;
 			children = (
 				15E95C3024FB4E6E00F6576B /* HomeViewController.swift */,
+				DE540827265486330024841A /* HomeCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -922,6 +925,7 @@
 				DE794D45256B3C56005F0E2D /* ViewModel.swift in Sources */,
 				57038AB0252D6BA900B54DA9 /* UIImage+Exts.swift in Sources */,
 				DE5BA00B256D0DBC00702A98 /* loadContent.swift in Sources */,
+				DE540828265486330024841A /* HomeCell.swift in Sources */,
 				151CD40A24F8AFA4006F3D9C /* AccountAPI.swift in Sources */,
 				DE5BA3F1256E480400702A98 /* Debug.swift in Sources */,
 				57038AEB252E548E00B54DA9 /* UIImage+Bitmap.swift in Sources */,

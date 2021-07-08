@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         if let window = window {
-            window.backgroundColor = .white
+            window.backgroundColor = R.color.background()
             Application.shared.presentInitialScreen(in: window)
         }
 

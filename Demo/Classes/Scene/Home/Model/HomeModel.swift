@@ -9,23 +9,25 @@
 import Foundation
 
 struct HomeResponse: Codable {
-    let totalCount: Int?
-    let incompleteResults: Bool?
+    let count: Int?
     let items: [HomeItem]?
 
     enum CodingKeys: String, CodingKey {
-        case totalCount = "total_count"
-        case incompleteResults = "incomplete_results"
+        case count
         case items
     }
 }
 
 struct HomeItem: Codable {
+    let id: String?
+    let createdAt: String?
     let name: String?
-    let title: String?
+    let price: String?
 
     enum CodingKeys: String, CodingKey {
-        case name = "total_count"
-        case title = "incomplete_results"
+        case id
+        case createdAt
+        case name
+        case price
     }
 }

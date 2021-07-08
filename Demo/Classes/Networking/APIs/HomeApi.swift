@@ -22,7 +22,7 @@ extension HomeApi: TargetType {
     var path: String {
         switch self {
         case .hello:
-            return "/Categories/0.json"
+            return "/products"
         }
     }
 

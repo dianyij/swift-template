@@ -47,19 +47,18 @@ final class OnlineProvider {
         provider.request(target) { result in
             switch result {
             case let .success(response):
-                NSLog("Response = \(response)")
-                // When call api success
+                print("tpye = \(T.self)\nResponse = \(response)")
                 if response.statusCode == 200 {
                     guard let results = try? JSONDecoder().decode(T.self, from: response.data) else {
-                        // Decode error
-                        completion(.failure(NetworkError.parseResponseDataFalse(title: target.path)))
+                        DispatchQueue.main.async {
+                            completion(.failure(NetworkError.parseResponseDataFalse(title: target.path)))
+                        }
                         return
                     }
                     DispatchQueue.main.async {
                         completion(.success(results))
                     }
                 } else {
-                    // When call API error
                     DispatchQueue.main.async {
                         let error = NSError(domain: target.path, code: response.statusCode, userInfo: nil)
                         completion(.failure(NetworkError.requestError(title: target.path, message: error.localizedDescription)))
@@ -89,7 +88,6 @@ final class OnlineProvider {
                         }
                         return
                     }
-
                     DispatchQueue.main.async {
                         completion(.success(dictionary))
                     }
